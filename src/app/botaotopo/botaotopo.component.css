@@ -1,0 +1,26 @@
+    
+#myBtn{
+    background: black;
+    border: 0px;
+    color: white;
+    transition: 600ms;
+    position: fixed;
+    bottom: 10px; right: 10px;
+    border-radius: 3rem;
+    height: 60px;
+    border-bottom:3px solid #EA0000;
+    border-radius: 3rem;
+    
+
+    }
+
+
+
+#myBtn:hover{
+        background-color: white;  
+        color: black;
+        transition: 600ms;  
+}
+
+
+

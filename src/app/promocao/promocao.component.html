@@ -1,0 +1,628 @@
+<html>
+    <body>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid" >
+              <a class="navbar-brand">Navbar</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                
+          
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Home
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" [routerLink]="['/home']" [fragment]="'home'">Home</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" [routerLink]="['/home']" [fragment]="'Historia'">Historia</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" [routerLink]="['/home']" [fragment]="'NossaCarne'">Nossa carne</a></li>
+                    </ul>
+                  </li>
+          
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Mercado
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a routerLink='/mercado' routerLinkActive="router-link-active"class="dropdown-item">Comprar</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a routerLink='/galeria' routerLinkActive="router-link-active" class="dropdown-item" >Galeria</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a routerLink='/cardapio' routerLinkActive="router-link-active" class="dropdown-item">Cardapio</a></li>
+                              </ul>
+                  </li>
+          
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Contatos
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">Instagram</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#">Facebook</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#">Whatzapp</a></li>
+                    </ul>
+                  </li>
+                  <div class="Carro-compra">
+                    <a><i class="bi bi-cart4" type="button" routerLink='/mercado' routerLinkActive="router-link-active"></i></a>
+                     <div id="carroCompra-text" class="text-white" alt="carro de compra promocao">carro de compra</div>
+                </div>
+                </ul>
+                <form class="d-flex" role="search">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+              </div>
+            </div>
+          </nav>
+    
+        
+            <section>
+                <h2>Promoção</h2>
+                
+                  <div class="container" id="buttonsSearch">
+                    <ul>
+                   <li> <button><a [routerLink]="['/mercado']" [fragment]="'carne'" >Carne</a></button></li>
+                    
+                  <li><button><a [routerLink]="['/mercado']" [fragment]="'natural'"  >natural</a></button></li>
+    
+                  <li><button><a [routerLink]="['/mercado']" [fragment]="'Frango'"  >Frango</a></button></li>
+    
+                  <li><button><a [routerLink]="['/mercado']" [fragment]="'calabresa'"  >calabresa</a></button></li>
+    
+                    </ul>
+    
+                  </div>
+            </section>
+    
+        
+            <section id="carne">
+            <h1>Carne</h1>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="col">
+                  <div class="card">
+                    <img src="assets\Imagens\imagemt.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                    
+                      <p class="card-text">Preço: pequeno: 18,00 </p>
+                      <p class="card-text">Preço: Medio: 25,00 </p>
+                      <p class="card-text">Preço: Grande: 30,00 </p>
+                    </div>
+                    <button type="button" onclick="clickmodal()" class="btn btn-primary" data-toggle="modal" data-target="#ModalLongoExemplo">
+                      Comprar
+                    </button>
+                    
+                    <!-- Modal -->
+    <div class="modal fade" data-backdrop="static" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Comprar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card ">
+                    <img src="assets\Imagens\imagemt.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <div class="card-body">
+                    
+                        <p class="card-text">Preço: pequeno: 18,00 </p>
+                        <p class="card-text">Preço: Medio: 25,00 </p>
+                        <p class="card-text">Preço: Grande: 30,00 </p>
+                      </div>
+                    </div>
+                    <button type="button" onclick="clickmodal()" class="btn btn-primary" data-toggle="modal" data-target="#ModalLongoExemplo">
+                      Comprar
+                    </button>
+                    
+                    <!-- Modal -->
+    <div class="modal fade" data-backdrop="static" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Comprar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card">
+                    <img src="assets\Imagens\imagemt.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <div class="card-body">
+                    
+                      <p class="card-text">Preço: pequeno: 18,00 </p>
+                      <p class="card-text">Preço: Medio: 25,00 </p>
+                      <p class="card-text">Preço: Grande: 30,00 </p>
+                    </div>
+                    </div>
+                    <button type="button" onclick="clickmodal()" class="btn btn-primary" data-toggle="modal" data-target="#ModalLongoExemplo">
+                      Comprar
+                    </button>
+                    
+                    <!-- Modal -->
+    <div class="modal fade" data-backdrop="static" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+           
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Comprar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card h-99">
+                    <img src="assets\Imagens\imagemt.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <p class="card-text">Preço: pequeno: 18,00 </p>
+                      <p class="card-text">Preço: Medio: 25,00 </p>
+                      <p class="card-text">Preço: Grande: 30,00 </p>
+                    </div>
+                    <button type="button" onclick="clickmodal()" class="btn btn-primary" data-toggle="modal" data-target="#ModalLongoExemplo">
+                      Comprar
+                    </button>
+                    
+                    <!-- Modal -->
+    <div class="modal fade" data-backdrop="static" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+      
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Comprar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+    
+        <section  id="natural">
+    <h1>Natural</h1>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="col">
+        <div class="card">
+          <img src="assets\Imagens\imagemt.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <p class="card-text">Preço: pequeno: 18,00 </p>
+            <p class="card-text">Preço: Medio: 25,00 </p>
+            <p class="card-text">Preço: Grande: 30,00 </p>      </div>
+          <button type="button" onclick="clickmodal()" class="btn btn-primary" data-toggle="modal" data-target="#ModalLongoExemplo">
+            Comprar
+          </button>
+          
+          <!-- Modal -->
+    <div class="modal fade" data-backdrop="static" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+    <div class="modal-content">
+    <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+    
+    </div>
+    <div class="modal-body">
+    ...
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      <button type="button" class="btn btn-primary">Comprar</button>
+    </div>
+    </div>
+    </div>
+    </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card ">
+          <img src="assets\Imagens\imagemt.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <p class="card-text">Preço: pequeno: 18,00 </p>
+            <p class="card-text">Preço: Medio: 25,00 </p>
+            <p class="card-text">Preço: Grande: 30,00 </p>
+          </div>
+          <button type="button" onclick="clickmodal()" class="btn btn-primary" data-toggle="modal" data-target="#ModalLongoExemplo">
+            Comprar
+          </button>
+          
+          <!-- Modal -->
+    <div class="modal fade" data-backdrop="static" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+    <div class="modal-content">
+    <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+    
+    </div>
+    <div class="modal-body">
+    ...
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      <button type="button" class="btn btn-primary">Comprar</button>
+    </div>
+    </div>
+    </div>
+    </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <img src="assets\Imagens\imagemt.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <p class="card-text">Preço: pequeno: 18,00 </p>
+            <p class="card-text">Preço: Medio: 25,00 </p>
+            <p class="card-text">Preço: Grande: 30,00 </p>
+          </div>
+          <button type="button" onclick="clickmodal()" class="btn btn-primary" data-toggle="modal" data-target="#ModalLongoExemplo">
+            Comprar
+          </button>
+          
+          <!-- Modal -->
+    <div class="modal fade" data-backdrop="static" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+    <div class="modal-content">
+    <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+    
+    </div>
+    <div class="modal-body">
+    ...
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      <button type="button" class="btn btn-primary">Comprar</button>
+    </div>
+    </div>
+    </div>
+    </div>>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-99">
+          <img src="assets\Imagens\imagemt.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <p class="card-text">Preço: pequeno: 18,00 </p>
+            <p class="card-text">Preço: Medio: 25,00 </p>
+            <p class="card-text">Preço: Grande: 30,00 </p>
+          </div>
+          <button type="button" onclick="clickmodal()" class="btn btn-primary" data-toggle="modal" data-target="#ModalLongoExemplo">
+            Comprar
+          </button>
+          
+          <!-- Modal -->
+    <div class="modal fade" data-backdrop="static" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+    <div class="modal-content">
+    <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+    
+    </div>
+    <div class="modal-body">
+    ...
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      <button type="button" class="btn btn-primary">Comprar</button>
+    </div>
+    </div>
+    </div>
+    </div>
+        </div>
+      </div>
+    </div>
+        </section>
+    
+    
+    <section  id="Frango">
+      <h1>Frango</h1>
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+          <div class="card">
+            <img src="assets\Imagens\imagemt.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <p class="card-text">Preço: pequeno: 18,00 </p>
+              <p class="card-text">Preço: Medio: 25,00 </p>
+              <p class="card-text">Preço: Grande: 30,00 </p>        </div>
+            <button type="button" onclick="clickmodal()" class="btn btn-primary" data-toggle="modal" data-target="#ModalLongoExemplo">
+              Comprar
+            </button>
+            
+            <!-- Modal -->
+    <div class="modal fade" data-backdrop="static" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+    <div class="modal-content">
+    <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+    
+    </div>
+    <div class="modal-body">
+    ...
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      <button type="button" class="btn btn-primary">Comprar</button>
+    </div>
+    </div>
+    </div>
+    </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card ">
+            <img src="assets\Imagens\imagemt.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <p class="card-text">Preço: pequeno: 18,00 </p>
+              <p class="card-text">Preço: Medio: 25,00 </p>
+              <p class="card-text">Preço: Grande: 30,00 </p>        </div>
+            <button type="button" onclick="clickmodal()" class="btn btn-primary" data-toggle="modal" data-target="#ModalLongoExemplo">
+              Comprar
+            </button>
+            
+            <!-- Modal -->
+    <div class="modal fade" data-backdrop="static" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+    <div class="modal-content">
+    <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+    
+    </div>
+    <div class="modal-body">
+    ...
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      <button type="button" class="btn btn-primary">Comprar</button>
+    </div>
+    </div>
+    </div>
+    </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <img src="assets\Imagens\imagemt.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <p class="card-text">Preço: pequeno: 18,00 </p>
+              <p class="card-text">Preço: Medio: 25,00 </p>
+              <p class="card-text">Preço: Grande: 30,00 </p>        </div>
+            <button type="button" onclick="clickmodal()" class="btn btn-primary" data-toggle="modal" data-target="#ModalLongoExemplo">
+              Comprar
+            </button>
+            
+            <!-- Modal -->
+    <div class="modal fade" data-backdrop="static" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+    <div class="modal-content">
+    <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+    
+    </div>
+    <div class="modal-body">
+    ...
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      <button type="button" class="btn btn-primary">Comprar</button>
+    </div>
+    </div>
+    </div>
+    </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-99">
+            <img src="assets\Imagens\imagemt.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <p class="card-text">Preço: pequeno: 18,00 </p>
+              <p class="card-text">Preço: Medio: 25,00 </p>
+              <p class="card-text">Preço: Grande: 30,00 </p>        </div>
+            <button type="button" onclick="clickmodal()" class="btn btn-primary" data-toggle="modal" data-target="#ModalLongoExemplo">
+              Comprar
+            </button>
+            
+            <!-- Modal -->
+    <div class="modal fade" data-backdrop="static" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+    <div class="modal-content">
+    <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+    
+    </div>
+    <div class="modal-body">
+    ...
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      <button type="button" class="btn btn-primary">Comprar</button>
+    </div>
+    </div>
+    </div>
+    </div>
+          </div>
+        </div>
+      </div>
+    
+        </section>
+    
+        <section  id="calabresa">
+          <h1>Calabresa</h1>
+          <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col">
+              <div class="card">
+                <img src="assets\Imagens\imagemt.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <p class="card-text">Preço: pequeno: 18,00 </p>
+                  <p class="card-text">Preço: Medio: 25,00 </p>
+                  <p class="card-text">Preço: Grande: 30,00 </p>            </div>
+                <button type="button" onclick="clickmodal()" class="btn btn-primary" data-toggle="modal" data-target="#ModalLongoExemplo">
+                  Comprar
+                </button>
+                
+                <!-- Modal -->
+    <div class="modal fade" data-backdrop="static" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+    
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Comprar</button>
+      </div>
+    </div>
+    </div>
+    </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card ">
+                <img src="assets\Imagens\imagemt.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <p class="card-text">Preço: pequeno: 18,00 </p>
+                  <p class="card-text">Preço: Medio: 25,00 </p>
+                  <p class="card-text">Preço: Grande: 30,00 </p>            </div>
+                <button type="button" onclick="clickmodal()" class="btn btn-primary" data-toggle="modal" data-target="#ModalLongoExemplo">
+                  Comprar
+                </button>
+                
+                <!-- Modal -->
+    <div class="modal fade" data-backdrop="static" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+    
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Comprar</button>>
+      </div>
+    </div>
+    </div>
+    </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                <img src="assets\Imagens\imagemt.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <p class="card-text">Preço: pequeno: 18,00 </p>
+                  <p class="card-text">Preço: Medio: 25,00 </p>
+                  <p class="card-text">Preço: Grande: 30,00 </p>            </div>
+                <button type="button" onclick="clickmodal()" class="btn btn-primary" data-toggle="modal" data-target="#ModalLongoExemplo">
+                  Comprar
+                </button>
+                
+                <!-- Modal -->
+    <div class="modal fade" data-backdrop="static" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+    
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Comprar</button>
+      </div>
+    </div>
+    </div>
+    </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card h-99">
+                <img src="assets\Imagens\imagemt.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <p class="card-text">Preço: pequeno: 18,00 </p>
+                  <p class="card-text">Preço: Medio: 25,00 </p>
+                  <p class="card-text">Preço: Grande: 30,00 </p>           
+                 </div>
+                <button type="button" onclick="clickmodal()" class="btn btn-primary" data-toggle="modal" data-target="#ModalLongoExemplo">
+                  Comprar
+                </button>
+                
+                <!-- Modal -->
+    <div class="modal fade" data-backdrop="static" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+       
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Comprar</button>
+      </div>
+    </div>
+    </div>
+    </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <app-botaotopo onclick="topFunction()"></app-botaotopo>
+          </section>
+           
+        </body>     
+     </html>
+        
+            
+           
+              
