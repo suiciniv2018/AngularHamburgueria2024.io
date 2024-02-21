@@ -35,7 +35,8 @@ body {
 
 img{
     border:none;
-    margin-left: 2px;
+    margin-top: 0px;
+    margin-left: 0px;
 }
 .navbar{
     background-color: rgb(24, 22, 22); 
@@ -101,6 +102,9 @@ button{
     width: 350px;
     
   }
+  p,li{
+    list-style-type: none;
+  }
 
 #buttonsSearch ul li a { 
     padding: 3px 10px;
@@ -131,5 +135,9 @@ button{
 }
 .bi-cart4::before{
     scale:2.5;
+}
+
+.tot{
+    color: black;
 }
 

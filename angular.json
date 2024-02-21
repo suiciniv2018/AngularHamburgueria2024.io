@@ -31,7 +31,8 @@
               "src/app/pageinitial/pageinitial.component.css",
               "src/app/mercado/mercado.component.css",
               "src/app/galeria/galeria.component.css",
-              "src/app/cardapio/cardapio.component.css"
+              "src/app/cardapio/cardapio.component.css",
+              "src/app/promocao/promocao.component.css"
           
               
             ],
@@ -39,9 +40,12 @@
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
               "src/app/botaotopo/topo.js",
-              "src/app/mercado/selecionandoAbas.js",
               "src/app/mercado/Modal.js",
-              "src/app/pageinitial/slides.js"
+              "src/app/pageinitial/slides.js",
+              "src/app/pageinitial/saltoPage.js",
+              "src/app/mercado/Somaecomerce.js"
+             
+              
               
             ],
             "server": "src/main.server.ts",

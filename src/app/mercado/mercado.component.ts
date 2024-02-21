@@ -10,7 +10,7 @@ import { BotaotopoComponent } from '../botaotopo/botaotopo.component';
   standalone: true,
   imports: [BotaotopoComponent,RouterLink],
   templateUrl: './mercado.component.html',
-  styleUrl: './mercado.component.css'
+  styleUrl: './mercado.component.css',
  
 })
 export class MercadoComponent implements OnInit  {

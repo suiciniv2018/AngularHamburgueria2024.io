@@ -21,11 +21,9 @@ export const routes: Routes = [
 
      {path:'mercado',title:'mercado',component:MercadoComponent},
      
-    {path:'promocao', title:'Promocao',component:PromocaoComponent},
+    {path:'promocao', title:'promocao',component:PromocaoComponent},
      
      {path: '', redirectTo:'/home',pathMatch:'full'},
-
-
      
    ];
   

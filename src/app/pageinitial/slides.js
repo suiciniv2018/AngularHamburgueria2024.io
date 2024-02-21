@@ -1,3 +1,6 @@
+
+"use strict"
+
 $(document).ready(function () {      
   $("#carouselExampleIndicators").carousel();   
   $(".item1").click(function () {
@@ -19,6 +22,7 @@ $(document).ready(function () {
 
   $("#carouselExampleIndicators").on('slid.bs.carousel', function () {
       alert ('Aproveite as promoçoes de final de semana');
+      
       
       
   });
