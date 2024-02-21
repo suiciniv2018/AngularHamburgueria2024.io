@@ -1,22 +1,32 @@
+jQuery(function ($) {
+    $("#carouselExampleIndicators").carousel();   
+    $(".item1").on(function () {
+        $("#carouselExampleIndicators").carousel(0);
+    });
+});
 
-"use strict"
 
-$(document).ready(function () {      
-  $("#carouselExampleIndicators").carousel();   
-  $(".item1").click(function () {
-      $("#carouselExampleIndicators").carousel(0);
-  });
-  $(".item2").click(function () {
-      $("#carouselExampleIndicators").carousel(1);
-  });
-  $(".item3").click(function () {
-      $("#carouselExampleIndicators").carousel(2);
-  });
+jQuery(function ($) {
+    $("#carouselExampleIndicators").carousel();   
+    $(".item2").on(function () {
+        $("#carouselExampleIndicators").carousel(1);
+    });
+});
+ 
 
-  $(".left").click(function () {
+jQuery(function ($) {
+    $("#carouselExampleIndicators").carousel();   
+    $(".item3").on(function () {
+        $("#carouselExampleIndicators").carousel(2);
+    });
+});
+
+
+
+  $(".left").on(function () {
       $("#carouselExampleIndicators").carousel("prev");
   });
-  $(".right").click(function () {
+  $(".right").on(function () {
       $("#carouselExampleIndicators").carousel("next");
   });
 
@@ -26,4 +36,4 @@ $(document).ready(function () {
       
       
   });
-});
+
