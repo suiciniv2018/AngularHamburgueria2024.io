@@ -1,27 +1,15 @@
-jQuery(function ($) {
-    $("#carouselExampleIndicators").carousel();   
-    $(".item1").on(function () {
-        $("#carouselExampleIndicators").carousel(0);
-    });
-});
 
 
-jQuery(function ($) {
-    $("#carouselExampleIndicators").carousel();   
-    $(".item2").on(function () {
-        $("#carouselExampleIndicators").carousel(1);
-    });
-});
+
+$(function () {      
  
 
-jQuery(function ($) {
-    $("#carouselExampleIndicators").carousel();   
-    $(".item3").on(function () {
-        $("#carouselExampleIndicators").carousel(2);
-    });
-});
-
-
+  $(".item2").on(function () {
+      $("#carouselExampleIndicators").carousel(1);
+  });
+  $(".item3").on(function () {
+      $("#carouselExampleIndicators").carousel(2);
+  });
 
   $(".left").on(function () {
       $("#carouselExampleIndicators").carousel("prev");
@@ -36,4 +24,4 @@ jQuery(function ($) {
       
       
   });
-
+});

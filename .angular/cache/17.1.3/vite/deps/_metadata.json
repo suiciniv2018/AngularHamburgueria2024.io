@@ -1,46 +1,55 @@
 {
-  "hash": "5909906d",
-  "configHash": "036df6f1",
+  "hash": "0e38bc5c",
+  "configHash": "52bfb225",
   "lockfileHash": "482d92cb",
-  "browserHash": "420ce591",
+  "browserHash": "59701fe4",
   "optimized": {
     "@angular/core": {
       "src": "../../../../../node_modules/@angular/core/fesm2022/core.mjs",
       "file": "@angular_core.js",
-      "fileHash": "78c5f94a",
+      "fileHash": "a30d0d1c",
       "needsInterop": false
     },
     "@angular/platform-browser": {
       "src": "../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
       "file": "@angular_platform-browser.js",
-      "fileHash": "255d8c8a",
+      "fileHash": "62c624af",
       "needsInterop": false
     },
     "@angular/platform-browser/animations/async": {
       "src": "../../../../../node_modules/@angular/platform-browser/fesm2022/animations/async.mjs",
       "file": "@angular_platform-browser_animations_async.js",
-      "fileHash": "c33a8ca6",
+      "fileHash": "bc1e1d83",
       "needsInterop": false
     },
     "@angular/router": {
       "src": "../../../../../node_modules/@angular/router/fesm2022/router.mjs",
       "file": "@angular_router.js",
-      "fileHash": "95724990",
+      "fileHash": "f4577f1e",
       "needsInterop": false
+    },
+    "jquery": {
+      "src": "../../../../../node_modules/jquery/dist/jquery.js",
+      "file": "jquery.js",
+      "fileHash": "016adac2",
+      "needsInterop": true
     }
   },
   "chunks": {
-    "chunk-XOD6UAUY": {
-      "file": "chunk-XOD6UAUY.js"
+    "chunk-O4RFANII": {
+      "file": "chunk-O4RFANII.js"
     },
-    "browser-SESGV46L": {
-      "file": "browser-SESGV46L.js"
+    "browser-NZC4CWD6": {
+      "file": "browser-NZC4CWD6.js"
     },
-    "chunk-BBRHE5GZ": {
-      "file": "chunk-BBRHE5GZ.js"
+    "chunk-YXBCZG7J": {
+      "file": "chunk-YXBCZG7J.js"
     },
-    "chunk-JNM7CA4Q": {
-      "file": "chunk-JNM7CA4Q.js"
+    "chunk-F2E6SICW": {
+      "file": "chunk-F2E6SICW.js"
+    },
+    "chunk-WKYGNSYM": {
+      "file": "chunk-WKYGNSYM.js"
     }
   }
 }
