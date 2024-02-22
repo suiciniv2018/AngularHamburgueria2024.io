@@ -30,7 +30,7 @@
                 <ul class="dropdown-menu">
                   <li><a routerLink='/cardapio' routerLinkActive="router-link-active"class="dropdown-item">cardapio</a></li>
                   <li><hr class="dropdown-divider"></li>
-                  <li><a routerLink='/promocao' routerLinkActive="router-link-active" class="dropdown-item">Promoção</a></li>
+                  <li><a routerLink='/promocao' routerLinkActive="router-link-active" class="dropdown-item">Combo Promocional</a></li>
                   <li><hr class="dropdown-divider"></li>
                   <li><a routerLink='/galeria' routerLinkActive="router-link-active" class="dropdown-item" >Galeria</a></li>
                 </ul>
@@ -106,25 +106,25 @@
         <form class="menu-compras">
           <p>
             <label for="Qtdlache">Quantidade Lanche</label>
-            <input type="number" id="Qtdlache" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
+            <input type="number" id="Qtdlache" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
         </p>
         
           <p>
             <label for="LacheP">Lanche pequeno</label>
             <input type="text" id="LancheP"  name="valor-fixo" value="R$ 18,00" readonly>
-            <button class="btn btn-primary" onclick="adicionarLanche('LancheP')">selecionar</button>
+            <button  id="buttonSelec"class="btn btn-primary" onclick="adicionarLanche('LancheP')">Selecionar</button>
         </p>
         
         <p>
           <label for="LancheM">Lanche medio</label>
           <input type="text" id="LancheM" name="valor-fixo" value="R$ 26,00" readonly>
-          <button class="btn btn-primary" onclick="adicionarLanche('LancheM')">selecionar</button>
+          <button id="buttonSelec1" class="btn btn-primary" onclick="adicionarLanche('LancheM')">Selecionar</button>
       </p>
       
       <p>
         <label for="LacnheG">Lanche grande</label>
         <input type="text" id="LancheG" name="valor-fixo" value="R$ 30,00"readonly>
-        <button class="btn btn-primary" onclick="adicionarLanche('LancheG')">selecionar</button>
+        <button id="buttonSelec2" class="btn btn-primary" onclick="adicionarLanche('LancheG')">Selecionar</button>
     </p>
           
         <div class="lista-valores">
@@ -133,8 +133,8 @@
                   <p class="valores">Valor carne extra: <span id="valor-carne">R$:6,00 </span> </p>
               </li>
               <p>
-                <label for="Qtdcarne">Quantidade Carne</label>
-                <input type="number" id="Qtdcarne" name="Qtdcarne" min="0" max="999" onchange="atualizarValorTotal()">
+                <label id ="NomeCarne"for="Qtdcarne">Quantidade Carne</label>
+                <input type="number" id="Qtdcarne" value="0" name="Qtdcarne" min="0" max="999" onchange="atualizarValorTotal()">
             </p>
           </ul>
           <div>

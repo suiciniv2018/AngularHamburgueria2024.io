@@ -2,16 +2,16 @@
 
 html { 
     font-size: 14px;
-padding: 3px;
-padding-right: 10px;
+    padding: 3px;
+    padding-right: 8px;
     /* A propriedade abaixo permite
     uma rolagem suave entre as áreas
     de navegação da página */
     scroll-behavior: smooth;
-    background: linear-gradient(90deg, rgba(23,18,102,1) 0%, rgba(165,123,238,1) 36%, rgba(36,159,218,1) 100%);
-
+    
+    
 }
-h1,h5,h2{
+h5,h2{
     color: white;
 }
 .btn{
@@ -25,27 +25,23 @@ h1,h5,h2{
 
 }
 body {
-    margin: 5px;
-    padding: 5px;
-    background: linear-gradient(90deg, rgba(23,18,102,1) 0%, rgba(165,123,238,1) 36%, rgba(36,159,218,1) 100%);
+
 
 }
 
 
 
-img{
-    border:none;
+.card-img-top{
+  border-radius: 0px;
     margin-top: 0px;
     margin-left: 0px;
+
 }
 .navbar{
-    background-color: rgb(24, 22, 22); 
+    background-color: black;
+    width: 100%;
+    height: 60px;
     color: azure; 
-   border-radius: 0.9rem;
-   margin: 0px;
-   margin-top: 2px;
-   padding-left: 15px;
-   padding-right: 15px;
 }
 .navbar-brand{
     color: white;
@@ -75,20 +71,35 @@ h1 {
     background-color:black;
     color: white;
     border-bottom:3px solid #EA0000;
+    width: 100%;
+    margin-left: 5px;
+    text-align: center;
+  
 }
 
 
 .card{
-    margin-top: 60px;
+    margin-top: 10px;
     width: 90%;
     height: 90%;
-    margin-left: 30px;
+    margin-left: 4px;
+    background-color: rgb(230, 191, 143);
 }
 
-button{
-    background-color: black;
-    
+.card-body{
+    background-color: rgb(230, 191, 143);
 }
+
+.btn{
+    background-color: black;
+    color:white;
+}
+
+.btn:hover{
+    background-color:greenyellow;
+    color:black;
+}
+
 
 #buttonsSearch{
     margin-top: 30px;
@@ -99,7 +110,8 @@ button{
     margin:0px;
     list-style:none;
     background-color: black;
-    width: 350px;
+    width: 340px;
+    border: white 1px solid;
     
   }
   p,li{
@@ -122,6 +134,59 @@ button{
     border-bottom:3px solid #EA0000;
     
   }
+  .modal-content{
+    background-color: rgb(230, 191, 143);
+  }
+  #exampleModal{
+    background: linear-gradient(90deg, rgba(23,18,102,1) 0%, rgba(165,123,238,1) 36%, rgba(36,159,218,1) 100%);
+
+  }
+input{
+    width: 80px;
+}
+
+#LancheP,#LancheM,#LancheG{
+    margin-left: 10px;
+}
+
+#LancheM{
+    margin-left: 22px;
+}
+
+#LancheG{
+    margin-left: 15px;
+}
+
+  #Qtdlache{
+
+    margin-left: 10px;
+    border: 1px solid black;
+  }
+
+  #Qtdcarne{
+    margin-left: 10px;
+  }
+  #NomeCarne{
+    margin-left: -22px;
+  }
+
+  .valores{
+    margin-left: -15px;
+  }
+
+  #buttonSelec{
+    margin-left: 20px;
+  }
+
+  #buttonSelec1{
+margin-left: 23px;
+
+  }
+
+  #buttonSelec2{
+    margin-left: 23px;
+    
+      }
 
   .Carro-compra{
     margin-left: 400px;

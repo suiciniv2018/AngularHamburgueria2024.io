@@ -7,7 +7,6 @@ padding: 3px;
     uma rolagem suave entre as áreas
     de navegação da página */
     scroll-behavior: smooth;
-    background: linear-gradient(90deg, rgba(23,18,102,1) 0%, rgba(165,123,238,1) 36%, rgba(36,159,218,1) 100%);
 
 }
 h1,h5,h2{
@@ -24,10 +23,7 @@ h1,h5,h2{
 
 }
 body {
-    margin: 5px;
-    padding: 5px;
-    background: linear-gradient(90deg, rgba(23,18,102,1) 0%, rgba(165,123,238,1) 36%, rgba(36,159,218,1) 100%);
-
+   
 }
 
 

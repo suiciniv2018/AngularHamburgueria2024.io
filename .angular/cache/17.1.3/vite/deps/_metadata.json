@@ -1,55 +1,46 @@
 {
-  "hash": "0e38bc5c",
-  "configHash": "52bfb225",
+  "hash": "5909906d",
+  "configHash": "036df6f1",
   "lockfileHash": "482d92cb",
-  "browserHash": "59701fe4",
+  "browserHash": "420ce591",
   "optimized": {
     "@angular/core": {
       "src": "../../../../../node_modules/@angular/core/fesm2022/core.mjs",
       "file": "@angular_core.js",
-      "fileHash": "a30d0d1c",
+      "fileHash": "6211368d",
       "needsInterop": false
     },
     "@angular/platform-browser": {
       "src": "../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
       "file": "@angular_platform-browser.js",
-      "fileHash": "62c624af",
+      "fileHash": "7355d437",
       "needsInterop": false
     },
     "@angular/platform-browser/animations/async": {
       "src": "../../../../../node_modules/@angular/platform-browser/fesm2022/animations/async.mjs",
       "file": "@angular_platform-browser_animations_async.js",
-      "fileHash": "bc1e1d83",
+      "fileHash": "2a8357ad",
       "needsInterop": false
     },
     "@angular/router": {
       "src": "../../../../../node_modules/@angular/router/fesm2022/router.mjs",
       "file": "@angular_router.js",
-      "fileHash": "f4577f1e",
+      "fileHash": "71c5f9ae",
       "needsInterop": false
-    },
-    "jquery": {
-      "src": "../../../../../node_modules/jquery/dist/jquery.js",
-      "file": "jquery.js",
-      "fileHash": "016adac2",
-      "needsInterop": true
     }
   },
   "chunks": {
-    "chunk-O4RFANII": {
-      "file": "chunk-O4RFANII.js"
+    "chunk-XOD6UAUY": {
+      "file": "chunk-XOD6UAUY.js"
     },
-    "browser-NZC4CWD6": {
-      "file": "browser-NZC4CWD6.js"
+    "browser-SESGV46L": {
+      "file": "browser-SESGV46L.js"
     },
-    "chunk-YXBCZG7J": {
-      "file": "chunk-YXBCZG7J.js"
+    "chunk-BBRHE5GZ": {
+      "file": "chunk-BBRHE5GZ.js"
     },
-    "chunk-F2E6SICW": {
-      "file": "chunk-F2E6SICW.js"
-    },
-    "chunk-WKYGNSYM": {
-      "file": "chunk-WKYGNSYM.js"
+    "chunk-JNM7CA4Q": {
+      "file": "chunk-JNM7CA4Q.js"
     }
   }
 }

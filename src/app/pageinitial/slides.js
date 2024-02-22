@@ -7,6 +7,7 @@ $(function () {
   $(".item2").on(function () {
       $("#carouselExampleIndicators").carousel(1);
   });
+
   $(".item3").on(function () {
       $("#carouselExampleIndicators").carousel(2);
   });
@@ -19,9 +20,7 @@ $(function () {
   });
 
   $("#carouselExampleIndicators").on('slid.bs.carousel', function () {
-      alert ('Aproveite as promoçoes de final de semana');
-      
-      
+    alert ('Aproveite as promoçoes de final de semana');  
       
   });
 });
