@@ -1,0 +1,9 @@
+{
+  "routes": [
+    "/cardapio",
+    "/galeria",
+    "/home",
+    "/mercado",
+    "/promocao"
+  ]
+}

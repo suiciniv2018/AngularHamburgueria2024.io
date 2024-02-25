@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Hamburgueria": {
+    "site": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/hamburgueria",
+            "outputPath": "dist/site",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -33,8 +33,6 @@
               "src/app/galeria/galeria.component.css",
               "src/app/cardapio/cardapio.component.css",
               "src/app/promocao/promocao.component.css"
-          
-              
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
@@ -44,9 +42,6 @@
               "src/app/pageinitial/slides.js",
               "src/app/pageinitial/saltoPage.js",
               "src/app/mercado/Somaecomerce.js"
-             
-              
-              
             ],
             "server": "src/main.server.ts",
             "prerender": true,
@@ -59,16 +54,16 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "5mb",
+                  "maximumError": "5mb"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "none"
             },
             "development": {
               "optimization": false,
@@ -82,10 +77,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "Hamburgueria:build:production"
+              "buildTarget": "site:build:production"
             },
             "development": {
-              "buildTarget": "Hamburgueria:build:development"
+              "buildTarget": "site:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -93,7 +88,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "Hamburgueria:build"
+            "buildTarget": "site:build"
           }
         },
         "test": {
@@ -108,14 +103,26 @@
               "src/favicon.ico",
               "src/assets"
             ],
-            "styles": [
-             
-            ],
-             
-            "scripts": [
-              
-            ]
+            "styles": [],
+            "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "version": 2
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "site:build:production",
+              "serveTarget": "site:serve:production"
+            },
+            "development": {
+              "buildTarget": "site:build:development",
+              "serveTarget": "site:serve:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }

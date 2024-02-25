@@ -1,57 +1,39 @@
 *, *::before, *::after { box-sizing: border-box; }
 
 html { 
-    font-size: 14px;
-    padding: 3px;
-    padding-right: 8px;
+font-size: 16px;
+padding:1px;
+margin: 0px;
     /* A propriedade abaixo permite
     uma rolagem suave entre as áreas
     de navegação da página */
     scroll-behavior: smooth;
-    
-    
 }
-h5,h2{
-    color: white;
-}
-.btn{
-    color: black;
-    background-color: white;
 
-}
-.btn:hover{
-    background-color: black;
-    color: white;
-
-}
 body {
-
-
-}
-
-
-
-.card-img-top{
-  border-radius: 0px;
-    margin-top: 0px;
-    margin-left: 0px;
+    background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
 
 }
+
 .navbar{
-    background-color: black;
-    width: 100%;
-    height: 60px;
-    color: azure; 
+  margin-top: -15px;
+  margin-left: -2px;
+  background: black;
+  width: 100.2%!important;
+  color: white; 
+  height: 80px;
+
 }
 .navbar-brand{
-    color: white;
+    color:black;
 }
 .navbar-toggler-icon{
     background-color: white;
     color: black;
 }
 .nav-link{
-    color: white;
+    color:white;
+    padding: 10px;
 
 }
 .dropdown-item{
@@ -62,131 +44,13 @@ body {
     color: white;
 }
 .dropdown-item:hover{
-    background: linear-gradient(90deg, rgba(23,18,102,1) 0%, rgba(165,123,238,1) 36%, rgba(36,159,218,1) 100%);
+    background: linear-gradient(90deg, rgb(108, 101, 206) 0%, rgb(175, 139, 236) 36%, rgba(36,159,218,1) 100%);
     
 }
-
-h1 { 
-    margin-top:100px ;
-    background-color:black;
-    color: white;
-    border-bottom:3px solid #EA0000;
-    width: 100%;
-    margin-left: 5px;
-    text-align: center;
-  
+.btn-close{
+  color: black;
+  background: white;
 }
-
-
-.card{
-    margin-top: 10px;
-    width: 90%;
-    height: 90%;
-    margin-left: 4px;
-    background-color: rgb(230, 191, 143);
-}
-
-.card-body{
-    background-color: rgb(230, 191, 143);
-}
-
-.btn{
-    background-color: black;
-    color:white;
-}
-
-.btn:hover{
-    background-color:greenyellow;
-    color:black;
-}
-
-
-#buttonsSearch{
-    margin-top: 30px;
-    
-}
-#buttonsSearch ul { 
-    padding:0px;
-    margin:0px;
-    list-style:none;
-    background-color: black;
-    width: 340px;
-    border: white 1px solid;
-    
-  }
-  p,li{
-    list-style-type: none;
-  }
-
-#buttonsSearch ul li a { 
-    padding: 3px 10px;
-
-    display: inline-block; /* visual do link */ 
-    color: white; 
-    text-decoration: none; 
-    border-bottom:3px solid black; 
-}
-#buttonsSearch ul li { display: inline; }
-
-#buttonsSearch ul li a:hover { 
-    background-color:black;
-    color: white;
-    border-bottom:3px solid #EA0000;
-    
-  }
-  .modal-content{
-    background-color: rgb(230, 191, 143);
-  }
-  #exampleModal{
-    background: linear-gradient(90deg, rgba(23,18,102,1) 0%, rgba(165,123,238,1) 36%, rgba(36,159,218,1) 100%);
-
-  }
-input{
-    width: 80px;
-}
-
-#LancheP,#LancheM,#LancheG{
-    margin-left: 10px;
-}
-
-#LancheM{
-    margin-left: 22px;
-}
-
-#LancheG{
-    margin-left: 15px;
-}
-
-  #Qtdlache{
-
-    margin-left: 10px;
-    border: 1px solid black;
-  }
-
-  #Qtdcarne{
-    margin-left: 10px;
-  }
-  #NomeCarne{
-    margin-left: -22px;
-  }
-
-  .valores{
-    margin-left: -15px;
-  }
-
-  #buttonSelec{
-    margin-left: 20px;
-  }
-
-  #buttonSelec1{
-margin-left: 23px;
-
-  }
-
-  #buttonSelec2{
-    margin-left: 23px;
-    
-      }
 
   .Carro-compra{
     margin-left: 400px;
@@ -195,14 +59,154 @@ margin-left: 23px;
 
 #carroCompra-text{
  margin-top: -20px;
- margin-left: 30px;
+ margin-left: -30px;
  
 }
 .bi-cart4::before{
     scale:2.5;
+    margin-left: -60px;
 }
 
 .tot{
     color: black;
 }
 
+h1 { 
+
+margin-top:100px ;
+background-color:black;
+color: white;
+border-bottom:3px solid #EA0000;
+width: 100%;
+margin-left: 0px;
+text-align: center;
+}
+
+  #SearchManin{
+    margin-top: 4px;
+    width:200px;
+
+    
+  }
+  .card{
+    margin-top: 30px;
+    width: 90%;
+    height: 90%;
+    margin-left: 4px;
+    
+  }
+
+
+
+
+.btn{
+  background-color: black;
+  color:white;
+}
+
+.btn:hover{
+  background-color:greenyellow;
+  color:black;
+}
+
+
+#buttonsSearch{
+  margin-top: 30px;
+  
+}
+#buttonsSearch ul { 
+  padding:0px;
+  margin:0px;
+  list-style:none;
+  background-color: black;
+  width: 360px;
+  border: white 1px solid;
+  
+}
+p,li{
+  list-style-type: none;
+}
+
+
+button{
+
+  background-color: black;
+}
+#buttonsSearch ul li a { 
+  padding: 3px 10px;
+
+  display: inline-block; /* visual do link */ 
+  color: white; 
+  text-decoration: none; 
+  border-bottom:3px solid black; 
+}
+#buttonsSearch ul li { display: inline; }
+
+#buttonsSearch ul li a:hover { 
+  background-color:black;
+  color: white;
+  border-bottom:3px solid #EA0000;
+  
+}
+.modal-content{
+  background-color: rgb(230, 191, 143);
+}
+#exampleModal{
+  background: linear-gradient(90deg, rgba(23,18,102,1) 0%, rgba(165,123,238,1) 36%, rgba(36,159,218,1) 100%);
+
+}
+input{
+  width: 80px;
+}
+
+#LancheP,#LancheM,#LancheG{
+  margin-left: 10px;
+}
+
+#LancheM{
+  margin-left: 22px;
+}
+
+#LancheG{
+  margin-left: 15px;
+}
+.QTDlanche{
+  margin-top: 10px;
+    }
+#Qtdlache,#Qtdlache1,#Qtdlache2{
+  width: 80px;
+  margin-left: 60px;
+  border: 1px solid black;
+}
+
+label{
+  margin-left: 60px;
+}
+.valores{
+  margin-left: 30px!important;
+}
+#Qtdcarne{
+margin-top: 5px;
+margin-left: 30px;
+border: black 1px solid;
+}
+
+
+.valores{
+  margin-left: -15px;
+
+}
+
+.modal-content{
+      width: 50rem;
+      margin-left: -130px;
+  }
+  
+  #buttonSelec1{
+    margin-left: 100px;
+  }
+  #buttonSelec,#buttonSelec1,#buttonSelec2{
+      margin-left: 40px;
+  }
+
+ 

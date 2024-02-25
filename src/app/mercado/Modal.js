@@ -1,9 +1,9 @@
 
+
 function clickmodal(){
     $('#exampleModal').modal('show')
-
-    $("form").submit(function(e){
+  
+    $("form").click(function(e){
         e.preventDefault();
      });
-}
-
+  }

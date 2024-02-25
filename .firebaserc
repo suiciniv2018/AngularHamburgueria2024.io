@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "site-a4999"
+  },
+  "targets": {
+    "site-a4999": {
+      "hosting": {
+        "site": [
+          "site-a4999"
+        ]
+      }
+    }
+  }
+}

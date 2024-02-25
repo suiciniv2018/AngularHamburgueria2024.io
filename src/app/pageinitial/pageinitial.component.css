@@ -1,20 +1,69 @@
 *, *::before, *::after { box-sizing: border-box; }
 
 html { 
-font-size: 14px;
+font-size: 16px;
 padding: 0px;
 margin: 0px;
     /* A propriedade abaixo permite
     uma rolagem suave entre as áreas
     de navegação da página */
     scroll-behavior: smooth;
-    background-color: rgb(238, 205, 145);
+   
 }
 
 
 body {
+    background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+
+}
+#offcanvasTop{
+   
+    height: 580px;
+    background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);  
+}
+.IMG-Canvas{
+    opacity: 0.3;
+}
+
+.btn-close{
+    color: black;
+}
+#buttonMenu{
+    margin-top: 30px;
+margin-left: 23px;
+
+}
+.navbar{
+    margin-top: -30px;
+    background:black;
+    margin-left: 0px;
+    width: 100%!important;
+    color: white; 
+    height: 80px;
     
-    background-color: rgb(238, 205, 145);
+}
+.navbar-brand{
+    color:black;
+}
+.navbar-toggler-icon{
+    background-color: white;
+    color: black;
+}
+.nav-link{
+    color:white;
+    padding: 10px;
+
+}
+.dropdown-item{
+    color:black;
+}
+.dropdown-menu{
+    background-color: white;
+    color: black;
+}
+.dropdown-item:hover{
+    background: linear-gradient(90deg, rgb(108, 101, 206) 0%, rgb(175, 139, 236) 36%, rgba(36,159,218,1) 100%);
+    
 }
 
 
@@ -32,85 +81,28 @@ h1,h5,h2{
 
 }
 
-
-img{
-    border:none;
-    margin-left: 2px;
-}
-.navbar{
-    background-color: rgb(238, 205, 145);
-    color: black;
-    margin-top: -20px;
-    width: 103%;
-    height: 80px;
-    color: azure; 
-    margin-left: -19px;
-    border-radius: 0px!important;
-    
-    
-}
-.navbar-brand{
-    color: black;
-}
-.navbar-toggler-icon{
-    background-color: black;
-    color: black;
-}
-.nav-link{
-    color: black;
-    padding-left: 10px;
-
-}
-.dropdown-item{
-    color:white;
-}
-.dropdown-menu{
-    background-color: black;
-    color: white;
-}
-.dropdown-item:hover{
-    background: linear-gradient(90deg, rgba(23,18,102,1) 0%, rgba(165,123,238,1) 36%, rgba(36,159,218,1) 100%);
-    
-}
-
 img{
 width:100%;
 height: 420px;
-border-radius: 0.90rem;
+
 
 }
 
 .Slide{
-margin-top: 40px;
-margin-left:-19px;
-
-width: 102.9%;
-
-
+margin-top: 70px;
+margin-left:-4px;
+width: 100.3%;
+border:1px solid rgb(230, 191, 143);;
 }
 
 .carousel-inner{
 width:100%;
 height: 50%;
-
-
 }
 
-
-.dropdown-item{
-    color:white;
-}
-.dropdown-menu{
+#Compra{
     background-color: black;
     color: white;
-}
-.dropdown-item:hover{
-    background: linear-gradient(90deg, rgba(23,18,102,1) 0%, rgba(165,123,238,1) 36%, rgba(36,159,218,1) 100%);
-    
-}
-#Compra{
-    background-color: black!important;
-    color: white!important;
 }
 .card{
 margin-left: 10px;
@@ -118,21 +110,20 @@ margin-left: 10px;
 
 .card-header{
     background-color: black;
-    color: aliceblue!important;
+    color: aliceblue;
 }
 
 #Historia, #NossaCarne{
     margin-top: 150px;
     width: 100%;
     height: 400px;
-    margin-left: 2px;
-   
+    margin-left: 0px;
     border-bottom:3px solid #EA0000!important;
-    border-radius: 2rem;
+    
 }
 
 footer{
- width:100,9%;
+ width:100%;
  margin-left: 0px;
  margin-top: 150px;
 
@@ -143,7 +134,7 @@ color:black;
 }
 
 .card-header{
-    color: black;
+    color: white;
     text-overflow: ellipsis;
     font-size: large;
 
@@ -160,10 +151,11 @@ color:black;
 #carroCompra-text{
  margin-top: -20px;
  margin-left: 30px;
+
  
 }
 .bi-cart4::before{
-    scale:2.5;
-    color: black;
+    scale:2;
+   color: white;
 }
 

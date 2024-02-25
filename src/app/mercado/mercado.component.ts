@@ -12,15 +12,17 @@ import { BotaotopoComponent } from '../botaotopo/botaotopo.component';
   imports: [BotaotopoComponent,RouterLink],
   templateUrl: './mercado.component.html',
   styleUrl: './mercado.component.css',
- 
+
 })
 export class MercadoComponent implements OnInit  {
-
-
   
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+
+    
+
+
     // Obter o ID do elemento da URL
     this.route.fragment.subscribe(fragment => {
       if (fragment) {
@@ -33,3 +35,8 @@ export class MercadoComponent implements OnInit  {
     });
   }
 }
+
+
+
+
+

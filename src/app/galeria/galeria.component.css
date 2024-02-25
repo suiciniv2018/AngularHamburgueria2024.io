@@ -1,56 +1,39 @@
 *, *::before, *::after { box-sizing: border-box; }
 
 html { 
-    font-size: 16x;
-padding: 3px;
+font-size: 16px;
+padding: 0px;
+margin: 0px;
     /* A propriedade abaixo permite
     uma rolagem suave entre as áreas
     de navegação da página */
     scroll-behavior: smooth;
+}
 
-}
-h1,h5,h2{
-    color: white;
-}
-.btn{
-    color: black;
-    background-color: white;
-
-}
-.btn:hover{
-    background-color: black;
-    color: white;
-
-}
 body {
-   
+    background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+
 }
 
-
-
-img{
-    border:none;
-    margin-left: 2px;
-}
 .navbar{
-    background-color: rgb(24, 22, 22); 
-    color: azure; 
-   border-radius: 0.9rem;
-   margin: 0px;
-   margin-top: 2px;
-   padding-left: 15px;
-   padding-right: 15px;
-   height: 60px;
-}
+    margin-top: -15px;
+    margin-left: 0px;
+    background: black;
+    width: 100%!important;
+    color: white; 
+    height: 80px;
+  
+  }
 .navbar-brand{
-    color: white;
+    color:black;
 }
 .navbar-toggler-icon{
     background-color: white;
     color: black;
 }
 .nav-link{
-    color: white;
+    color:white;
+    padding: 10px;
 
 }
 .dropdown-item{
@@ -61,38 +44,39 @@ img{
     color: white;
 }
 .dropdown-item:hover{
-    background: linear-gradient(90deg, rgba(23,18,102,1) 0%, rgba(165,123,238,1) 36%, rgba(36,159,218,1) 100%);
+    background: linear-gradient(90deg, rgb(108, 101, 206) 0%, rgb(175, 139, 236) 36%, rgba(36,159,218,1) 100%);
     
 }
 
-img{
-width:100%;
-height: 500px;
-border-radius: 3rem;
+
+  .Carro-compra{
+    margin-left: 400px;
+    margin-top:5px;
 }
 
-.Slide{
-margin-top: 30px;
-border-radius: 3rem;
-
+#carroCompra-text{
+ margin-top: -20px;
+ margin-left: -30px;
+ 
+}
+.bi-cart4::before{
+    scale:2.5;
+    margin-left: -60px;
 }
 
-.carousel-inner{
-width:100%;
-height: 50%;
+.tot{
+    color: black;
 }
 
-.dropdown-item{
-    color:white;
-}
-.dropdown-menu{
-    background-color: black;
-    color: white;
-}
-.dropdown-item:hover{
-    background: linear-gradient(90deg, rgba(23,18,102,1) 0%, rgba(165,123,238,1) 36%, rgba(36,159,218,1) 100%);
+
+
+  #SearchManin{
+    margin-top: 4px;
+    width:200px;
+
     
-}
+  }
+
 
 
 .Fimpage{
@@ -104,27 +88,10 @@ height: 50%;
 }
 
 /* Tornando as imagens responsivas */
-img {
-    width: 100%; 
-    height: 200px;
-    margin-left: 10px;
-    margin: 5px;
-    border: 1px solid black;
-    border-radius: 3rem;
-   
-}
 
-
-/* Formatando todos os links 
-(sem underline, com cor preta) */
-a {
-    text-decoration: none;
-    color: white;
+#FotosGaleria{
+    margin-top: 30px;
 }
-.container{
-    margin-top: 20px;
-}
-
 
 .Carro-compra{
     margin-left: 400px;
