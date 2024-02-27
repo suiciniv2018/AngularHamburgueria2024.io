@@ -1,6 +1,10 @@
-import { Component } from '@angular/core';
+import { SaltoPageService } from './../ServiçosPagina@injetacble/salto-page.service';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { BotaotopoComponent } from '../botaotopo/botaotopo.component';
+import { PassarImagemoutraPaginaService } from '../ServiçosPagina@injetacble/passar-imagemoutra-pagina.service';
+
+
 
 @Component({
   selector: 'app-promocao',
@@ -9,21 +13,21 @@ import { BotaotopoComponent } from '../botaotopo/botaotopo.component';
   templateUrl: './promocao.component.html',
   styleUrl: './promocao.component.css',
 })
-export class PromocaoComponent {
 
-  constructor(private route: ActivatedRoute) { }
+export class PromocaoComponent implements OnInit{
+[x: string]: any;
+
+  constructor(private route: ActivatedRoute,public PassarImagemoutraPaginaService: PassarImagemoutraPaginaService,
+    public SaltoPageService:SaltoPageService) { }
 
   ngOnInit(): void {
-    // Obter o ID do elemento da URL
-    this.route.fragment.subscribe((fragment: any) => {
-      if (fragment) {
-        const element = document.querySelector(`#${fragment}`);
-        if (element) {
-          // Rolar até o elemento
-          element.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
-        }
-      }
-    });
+  
+this.SaltoPageService;
+
+
+
+    this.PassarImagemoutraPaginaService['caminhoImagemModal']; // Caminho da imagem inicial
+    this.PassarImagemoutraPaginaService['caminhoImagem'];  // Caminho da imagem no modal
   }
 }
 

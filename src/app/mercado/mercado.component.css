@@ -2,26 +2,28 @@
 
 html { 
 font-size: 16px;
-padding:1px;
+padding: 0px !important;;
 margin: 0px;
     /* A propriedade abaixo permite
     uma rolagem suave entre as áreas
     de navegação da página */
     scroll-behavior: smooth;
+ 
 }
 
 body {
     background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
-
+    
 }
 
 .navbar{
-  margin-top: -15px;
-  margin-left: -2px;
+  margin-top: 0px;
+  margin-left: 0px;
   background: black;
-  width: 100.2%!important;
+  width: 100%!important;
   color: white; 
   height: 80px;
+  display: block;
 
 }
 .navbar-brand{
@@ -46,10 +48,6 @@ body {
 .dropdown-item:hover{
     background: linear-gradient(90deg, rgb(108, 101, 206) 0%, rgb(175, 139, 236) 36%, rgba(36,159,218,1) 100%);
     
-}
-.btn-close{
-  color: black;
-  background: white;
 }
 
   .Carro-compra{
@@ -77,8 +75,8 @@ margin-top:100px ;
 background-color:black;
 color: white;
 border-bottom:3px solid #EA0000;
-width: 100%;
-margin-left: 0px;
+width: 99%;
+margin-left: 3px;
 text-align: center;
 }
 
@@ -150,6 +148,7 @@ button{
 }
 .modal-content{
   background-color: rgb(230, 191, 143);
+  width: 300px;
 }
 #exampleModal{
   background: linear-gradient(90deg, rgba(23,18,102,1) 0%, rgba(165,123,238,1) 36%, rgba(36,159,218,1) 100%);
@@ -185,21 +184,32 @@ label{
 .valores{
   margin-left: 30px!important;
 }
-#Qtdcarne{
+#Qtdcarne, #QtdBacon,#QtdQueijo{
 margin-top: 5px;
-margin-left: 30px;
+margin-left: 50rem;
 border: black 1px solid;
 }
 
-
-.valores{
-  margin-left: -15px;
-
+h4{
+  margin-left: -25rem;
 }
 
+.valores{
+ margin-left: -25rem!important;
+
+}
+.Containers-Qtd{
+  margin-right: 10px!important;
+}
+label.nomeQtd{
+  margin-right: -44rem !important;
+}
+.Containers-Qtd{
+  margin-left: -20rem;
+}
 .modal-content{
-      width: 50rem;
-      margin-left: -130px;
+      width: 70rem;
+      margin-left: -320px;
   }
   
   #buttonSelec1{
@@ -209,4 +219,11 @@ border: black 1px solid;
       margin-left: 40px;
   }
 
- 
+ #ImagemModal{
+  margin-top: 5%;
+  width: 20%;
+ }
+
+ .Precosmodal{
+  margin-top: -180px;
+ }

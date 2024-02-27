@@ -55,7 +55,7 @@
             </ul>
             <form class="d-flex" role="search">
               <input class="form-control me-2" id="SearchManin" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
+              <button class="btn btn-outline-success" autocomplete="on" type="submit">Search</button>
             </form>
           </div>
         </div>
@@ -86,12 +86,12 @@
             <div class="row">
               <div class="col">
                 <div class="card" style="width: 18rem;">
-                  <img src="assets\Imagens\hamburguertra.avif" alt="...">
+                  <img src="assets\Imagens\hamburguertra.avif" id="imagem-lanche" alt="...">
                   <div class="card-body">
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                   </div>
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+<button type="button" class="btn btn-primary" click="carregarImagemLanche()"  data-bs-toggle="modal" data-bs-target="#exampleModal">
   Comprar
 </button>
 
@@ -104,6 +104,10 @@
         
       </div>
       <div class="modal-body">
+        <div  id="ImagemModal" alt="Imagem do Produto no Modal">
+        <img [src]="PassarImagemoutraPaginaService['caminhoImagemModal']" class="img-fluid" alt="">
+      </div>
+      <div class="Precosmodal">
         <p class="valor-lancheP">
           <label for="LacheP">Lanche pequeno</label>
           <input type="text" id="LancheP"  name="valor-fixo" value="R$ 18,00" readonly>
@@ -131,27 +135,42 @@
       </p>
       
       <div class="lista-valores">
-          <ul>
+          
+            <div class="container-Container">
               <h4>Complementos</h4>
+              </div>
+              <div class="Valores-carne">
+                <ul class="valores">
               <li>
-                  <p class="valores">Valor carne extra: <span id="valor-carne">R$:6,00 </span> </p>
+                  <p >Valor carne extra: <span id="valor-carne">R$:6,00 </span> </p>
               </li>
-              <p>
-                  <label id="NomeCarne" for="Qtdcarne">Quantidade Carne</label>
+            </ul>
+              <ul class="Contaneir-QTD">
+              <p class="Containers-Qtd">
+                  <label id="NomeCarne" for="Qtdcarne" class = "nomeQtd">Quantidade Carne</label>
                   <input type="number" id="Qtdcarne" value="0" name="Qtdcarne" min="0" max="999" onchange="atualizarValorTotal()">
               </p>
-          </ul>
+              <p class="Containers-Qtd">
+                <label id="NomeBacon" class = "nomeQtd"for="Qtdcarne">Quantidade Bacon</label>
+                <input type="number" id="QtdBacon" value="0" name="QtdBacon" min="0" max="999" onchange="atualizarValorTotal()">
+            </p>
+            <p class="Containers-Qtd">
+              <label id="NomeQueijo" for="Qtdcarne" class = "nomeQtd">Quantidade Queijo</label>
+              <input type="number" id="QtdQueijo" value="0" name="QtdQueijo" min="0" max="999" onchange="atualizarValorTotal()">
+          </p>
+              </ul>
+              </div>
           <div>
           </div>
       </div>
-      
+    </div>
       <div>
           <p class="tot">Total:<span name="total" id="total" aria-readonly="true">R$ 0.00</span></p>
       </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-primary">Adicionar ao Carrinho</button>
+      <a><button type="button" class="btn btn-primary" click="adicionarAoCarrinho()" routerLink='/carro' routerLinkActive="router-link-active">Adicionar ao Carrinho</button></a>
       </div>
     </div>
   </div>
@@ -225,7 +244,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-primary">Adicionar ao Carrinho</button>
+        <a><button type="button" class="btn btn-primary" click="adicionarAoCarrinho()" routerLink='/carro' routerLinkActive="router-link-active">Adicionar ao Carrinho</button></a>
       </div>
     </div>
   </div>
@@ -233,6 +252,7 @@
                 </div>
               </div>
               <!--Terceiro container carne-->
+              
               <div class="col">
                 <div class="card" style="width: 18rem;">
                   <img src="assets\Imagens\hamburguertra.avif" class="card-img-top" alt="...">
@@ -298,7 +318,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-primary">Adicionar ao Carrinho</button>
+        <a><button type="button" class="btn btn-primary" click="adicionarAoCarrinho()" routerLink='/carro' routerLinkActive="router-link-active">Adicionar ao Carrinho</button></a>
       </div>
     </div>
   </div>
@@ -306,52 +326,168 @@
                 </div>
               </div>
 <!--Quarto container carne-->
-              <div class="col">
-                <div class="card" style="width: 18rem;">
-                  <img src="assets\Imagens\hamburguertra.avif" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  </div>
-                  <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Comprar
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Realize seu Desejo</h5>
-       
-      </div>
-      <div class="modal-body">
-        
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-primary">Adicionar ao Carrinho</button>
-      </div>
+              
+<div class="col">
+  <div class="card" style="width: 18rem;">
+    <img src="assets\Imagens\hamburguertra.avif" class="card-img-top" alt="...">
+    <div class="card-body">
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
     </div>
-  </div>
-</div>
-                </div>
-              </div>
-
-<!--Quinto container carne-->
-              <div class="col">
-                <div class="card" style="width: 18rem;">
-                  <img src="assets\Imagens\hamburguertra.avif" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  </div>
-                  <!-- Button trigger modal -->
+    <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
 Comprar
 </button>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="exampleModalLabel">Realize seu Desejo</h5>
+
+</div>
+<div class="modal-body">
+<p class="valor-lancheP">
+<label for="LacheP">Lanche pequeno</label>
+<input type="text" id="LancheP"  name="valor-fixo" value="R$ 18,00" readonly>
+
+<label for="Qtdlache">Quantidade Lanche</label>
+<input type="number" id="Qtdlache" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
+</p>
+
+<p class="valor-lancheM">
+<label for="LancheM">Lanche medio</label>
+<input type="text" id="LancheM" name="valor-fixo" value="R$ 26,00" readonly>
+
+<label for="Qtdlache1">Quantidade Lanche</label>
+<input type="number" id="Qtdlache1" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
+</p>
+
+<p class="valor-lancheG">
+<label for="LacnheG">Lanche grande</label>
+<input type="text" id="LancheG" name="valor-fixo" value="R$ 30,00"readonly>
+
+<label for="Qtdlache2">Quantidade Lanche</label>
+<input type="number" id="Qtdlache2" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
+</p>
+
+<div class="lista-valores">
+<ul>
+<h4>Complementos</h4>
+<li>
+    <p class="valores">Valor carne extra: <span id="valor-carne">R$:6,00 </span> </p>
+</li>
+<p>
+    <label id="NomeCarne" for="Qtdcarne">Quantidade Carne</label>
+    <input type="number" id="Qtdcarne" value="0" name="Qtdcarne" min="0" max="999" onchange="atualizarValorTotal()">
+</p>
+</ul>
+<div>
+</div>
+</div>
+
+<div>
+<p class="tot">Total:<span name="total" id="total" aria-readonly="true">R$ 0.00</span></p>
+</div>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+<a><button type="button" class="btn btn-primary" click="adicionarAoCarrinho()" routerLink='/carro' routerLinkActive="router-link-active">Adicionar ao Carrinho</button></a>
+</div>
+</div>
+</div>
+</div>
+  </div>
+</div>
+<!--Quinto container carne-->
+              
+<div class="col">
+  <div class="card" style="width: 18rem;">
+    <img src="assets\Imagens\hamburguertra.avif" class="card-img-top" alt="...">
+    <div class="card-body">
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+    <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+Comprar
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="exampleModalLabel">Realize seu Desejo</h5>
+
+</div>
+<div class="modal-body">
+<p class="valor-lancheP">
+<label for="LacheP">Lanche pequeno</label>
+<input type="text" id="LancheP"  name="valor-fixo" value="R$ 18,00" readonly>
+
+<label for="Qtdlache">Quantidade Lanche</label>
+<input type="number" id="Qtdlache" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
+</p>
+
+<p class="valor-lancheM">
+<label for="LancheM">Lanche medio</label>
+<input type="text" id="LancheM" name="valor-fixo" value="R$ 26,00" readonly>
+
+<label for="Qtdlache1">Quantidade Lanche</label>
+<input type="number" id="Qtdlache1" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
+</p>
+
+<p class="valor-lancheG">
+<label for="LacnheG">Lanche grande</label>
+<input type="text" id="LancheG" name="valor-fixo" value="R$ 30,00"readonly>
+
+<label for="Qtdlache2">Quantidade Lanche</label>
+<input type="number" id="Qtdlache2" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
+</p>
+
+<div class="lista-valores">
+<ul>
+<h4>Complementos</h4>
+<li>
+    <p class="valores">Valor carne extra: <span id="valor-carne">R$:6,00 </span> </p>
+</li>
+<p>
+    <label id="NomeCarne" for="Qtdcarne">Quantidade Carne</label>
+    <input type="number" id="Qtdcarne" value="0" name="Qtdcarne" min="0" max="999" onchange="atualizarValorTotal()">
+</p>
+</ul>
+<div>
+</div>
+</div>
+
+<div>
+<p class="tot">Total:<span name="total" id="total" aria-readonly="true">R$ 0.00</span></p>
+</div>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+<a><button type="button" class="btn btn-primary" click="adicionarAoCarrinho()" routerLink='/carro' routerLinkActive="router-link-active">Adicionar ao Carrinho</button></a>
+</div>
+</div>
+</div>
+</div>
+  </div>
+</div>
+              <!--Sexto container carne-->
+              
+              <div class="col">
+                <div class="card" style="width: 18rem;">
+                  <img src="assets\Imagens\hamburguertra.avif" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  </div>
+                  <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Comprar
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -404,80 +540,7 @@ Comprar
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-primary">Adicionar ao Carrinho</button>
-      </div>
-    </div>
-  </div>
-</div>
-                </div>
-              </div>
-              <!--Sexto container carne-->
-              <div class="col">
-                <div class="card" style="width: 18rem;">
-                  <img src="assets\Imagens\hamburguertra.avif" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  </div>
-                  <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Comprar
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Realize seu Desejo</h5>
-      
-      </div>
-      <div class="modal-body">
-        <p class="valor-lancheP">
-          <label for="LacheP">Lanche pequeno</label>
-          <input type="text" id="LancheP"  name="valor-fixo" value="R$ 18,00" readonly>
-          
-          <label for="Qtdlache">Quantidade Lanche</label>
-          <input type="number" id="Qtdlache" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
-      </p>
-      
-      <p class="valor-lancheM">
-          <label for="LancheM">Lanche medio</label>
-          <input type="text" id="LancheM" name="valor-fixo" value="R$ 26,00" readonly>
-          
-          <label for="Qtdlache1">Quantidade Lanche</label>
-          <input type="number" id="Qtdlache1" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
-      </p>
-      
-      <p class="valor-lancheG">
-          <label for="LacnheG">Lanche grande</label>
-          <input type="text" id="LancheG" name="valor-fixo" value="R$ 30,00"readonly>
-      
-          <label for="Qtdlache2">Quantidade Lanche</label>
-          <input type="number" id="Qtdlache2" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
-      </p>
-      
-      <div class="lista-valores">
-          <ul>
-              <h4>Complementos</h4>
-              <li>
-                  <p class="valores">Valor carne extra: <span id="valor-carne">R$:6,00 </span> </p>
-              </li>
-              <p>
-                  <label id="NomeCarne" for="Qtdcarne">Quantidade Carne</label>
-                  <input type="number" id="Qtdcarne" value="0" name="Qtdcarne" min="0" max="999" onchange="atualizarValorTotal()">
-              </p>
-          </ul>
-          <div>
-          </div>
-      </div>
-      
-      <div>
-          <p class="tot">Total:<span name="total" id="total" aria-readonly="true">R$ 0.00</span></p>
-      </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-primary">Adicionar ao Carrinho</button>
+        <a><button type="button" class="btn btn-primary" click="adicionarAoCarrinho()" routerLink='/carro' routerLinkActive="router-link-active">Adicionar ao Carrinho</button></a>
       </div>
     </div>
   </div>
@@ -485,1061 +548,1135 @@ Comprar
                 </div>
               </div>
             </div>
-            
           </div>
-
+          
+        
         </section>
 
 <section>
-        <h1>Hamburguer Natural</h1>
-        <section id="Natural">
-          <!--primeiro container Natural-->
-          <div class="container text-center" >
-            <div class="row">
-              <div class="col">
-                <div class="card" style="width: 18rem;">
-                  <img src="assets\Imagens\hamburguertra.avif" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  </div>
-                  <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Comprar
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Realize seu Desejo</h5>
-        
-      </div>
-      <div class="modal-body">
-        <p class="valor-lancheP">
-          <label for="LacheP">Lanche pequeno</label>
-          <input type="text" id="LancheP"  name="valor-fixo" value="R$ 18,00" readonly>
-          
-          <label for="Qtdlache">Quantidade Lanche</label>
-          <input type="number" id="Qtdlache" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
-      </p>
-      
-      <p class="valor-lancheM">
-          <label for="LancheM">Lanche medio</label>
-          <input type="text" id="LancheM" name="valor-fixo" value="R$ 26,00" readonly>
-          
-          <label for="Qtdlache1">Quantidade Lanche</label>
-          <input type="number" id="Qtdlache1" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
-      </p>
-      
-      <p class="valor-lancheG">
-          <label for="LacnheG">Lanche grande</label>
-          <input type="text" id="LancheG" name="valor-fixo" value="R$ 30,00"readonly>
-      
-          <label for="Qtdlache2">Quantidade Lanche</label>
-          <input type="number" id="Qtdlache2" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
-      </p>
-      
-      <div class="lista-valores">
-          <ul>
-              <h4>Complementos</h4>
-              <li>
-                  <p class="valores">Valor carne extra: <span id="valor-carne">R$:6,00 </span> </p>
-              </li>
-              <p>
-                  <label id="NomeCarne" for="Qtdcarne">Quantidade Carne</label>
-                  <input type="number" id="Qtdcarne" value="0" name="Qtdcarne" min="0" max="999" onchange="atualizarValorTotal()">
-              </p>
-          </ul>
-          <div>
-          </div>
-      </div>
-      
-      <div>
-          <p class="tot">Total:<span name="total" id="total" aria-readonly="true">R$ 0.00</span></p>
-      </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-primary">Adicionar ao Carrinho</button>
-      </div>
-    </div>
-  </div>
-</div>
-                </div>
-              </div>
-              <!--segundo container Natural-->
-              <div class="col">
-                <div class="card" style="width: 18rem;">
-                  <img src="assets\Imagens\hamburguertra.avif" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  </div>
-                  <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Comprar
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Realize seu Desejo</h5>
-       
-      </div>
-      <div class="modal-body">
-        <p class="valor-lancheP">
-          <label for="LacheP">Lanche pequeno</label>
-          <input type="text" id="LancheP"  name="valor-fixo" value="R$ 18,00" readonly>
-          
-          <label for="Qtdlache">Quantidade Lanche</label>
-          <input type="number" id="Qtdlache" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
-      </p>
-      
-      <p class="valor-lancheM">
-          <label for="LancheM">Lanche medio</label>
-          <input type="text" id="LancheM" name="valor-fixo" value="R$ 26,00" readonly>
-          
-          <label for="Qtdlache1">Quantidade Lanche</label>
-          <input type="number" id="Qtdlache1" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
-      </p>
-      
-      <p class="valor-lancheG">
-          <label for="LacnheG">Lanche grande</label>
-          <input type="text" id="LancheG" name="valor-fixo" value="R$ 30,00"readonly>
-      
-          <label for="Qtdlache2">Quantidade Lanche</label>
-          <input type="number" id="Qtdlache2" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
-      </p>
-      
-      <div class="lista-valores">
-          <ul>
-              <h4>Complementos</h4>
-              <li>
-                  <p class="valores">Valor carne extra: <span id="valor-carne">R$:6,00 </span> </p>
-              </li>
-              <p>
-                  <label id="NomeCarne" for="Qtdcarne">Quantidade Carne</label>
-                  <input type="number" id="Qtdcarne" value="0" name="Qtdcarne" min="0" max="999" onchange="atualizarValorTotal()">
-              </p>
-          </ul>
-          <div>
-          </div>
-      </div>
-      
-      <div>
-          <p class="tot">Total:<span name="total" id="total" aria-readonly="true">R$ 0.00</span></p>
-      </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-primary">Adicionar ao Carrinho</button>
-      </div>
-    </div>
-  </div>
-</div>
-                </div>
-              </div>
-               <!--Terceiro container Natural--> 
-              <div class="col">
-                <div class="card" style="width: 18rem;">
-                  <img src="assets\Imagens\hamburguertra.avif" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  </div>
-                  <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Comprar
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Realize seu Desejo</h5>
-       >
-      </div>
-      <div class="modal-body">
-        <p class="valor-lancheP">
-          <label for="LacheP">Lanche pequeno</label>
-          <input type="text" id="LancheP"  name="valor-fixo" value="R$ 18,00" readonly>
-          
-          <label for="Qtdlache">Quantidade Lanche</label>
-          <input type="number" id="Qtdlache" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
-      </p>
-      
-      <p class="valor-lancheM">
-          <label for="LancheM">Lanche medio</label>
-          <input type="text" id="LancheM" name="valor-fixo" value="R$ 26,00" readonly>
-          
-          <label for="Qtdlache1">Quantidade Lanche</label>
-          <input type="number" id="Qtdlache1" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
-      </p>
-      
-      <p class="valor-lancheG">
-          <label for="LacnheG">Lanche grande</label>
-          <input type="text" id="LancheG" name="valor-fixo" value="R$ 30,00"readonly>
-      
-          <label for="Qtdlache2">Quantidade Lanche</label>
-          <input type="number" id="Qtdlache2" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
-      </p>
-      
-      <div class="lista-valores">
-          <ul>
-              <h4>Complementos</h4>
-              <li>
-                  <p class="valores">Valor carne extra: <span id="valor-carne">R$:6,00 </span> </p>
-              </li>
-              <p>
-                  <label id="NomeCarne" for="Qtdcarne">Quantidade Carne</label>
-                  <input type="number" id="Qtdcarne" value="0" name="Qtdcarne" min="0" max="999" onchange="atualizarValorTotal()">
-              </p>
-          </ul>
-          <div>
-          </div>
-      </div>
-      
-      <div>
-          <p class="tot">Total:<span name="total" id="total" aria-readonly="true">R$ 0.00</span></p>
-      </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-primary">Adicionar ao Carrinho</button>
-      </div>
-    </div>
-  </div>
-</div>
-                </div>
-              </div>
-              <!--Quarto container Natural-->
-              <div class="col">
-                <div class="card" style="width: 18rem;">
-                  <img src="assets\Imagens\hamburguertra.avif" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  </div>
-                  <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Comprar
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Realize seu Desejo</h5>
-        
-      </div>
-      <div class="modal-body">
-        <p class="valor-lancheP">
-          <label for="LacheP">Lanche pequeno</label>
-          <input type="text" id="LancheP"  name="valor-fixo" value="R$ 18,00" readonly>
-          
-          <label for="Qtdlache">Quantidade Lanche</label>
-          <input type="number" id="Qtdlache" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
-      </p>
-      
-      <p class="valor-lancheM">
-          <label for="LancheM">Lanche medio</label>
-          <input type="text" id="LancheM" name="valor-fixo" value="R$ 26,00" readonly>
-          
-          <label for="Qtdlache1">Quantidade Lanche</label>
-          <input type="number" id="Qtdlache1" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
-      </p>
-      
-      <p class="valor-lancheG">
-          <label for="LacnheG">Lanche grande</label>
-          <input type="text" id="LancheG" name="valor-fixo" value="R$ 30,00"readonly>
-      
-          <label for="Qtdlache2">Quantidade Lanche</label>
-          <input type="number" id="Qtdlache2" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
-      </p>
-      
-      <div class="lista-valores">
-          <ul>
-              <h4>Complementos</h4>
-              <li>
-                  <p class="valores">Valor carne extra: <span id="valor-carne">R$:6,00 </span> </p>
-              </li>
-              <p>
-                  <label id="NomeCarne" for="Qtdcarne">Quantidade Carne</label>
-                  <input type="number" id="Qtdcarne" value="0" name="Qtdcarne" min="0" max="999" onchange="atualizarValorTotal()">
-              </p>
-          </ul>
-          <div>
-          </div>
-      </div>
-      
-      <div>
-          <p class="tot">Total:<span name="total" id="total" aria-readonly="true">R$ 0.00</span></p>
-      </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-primary">Adicionar ao Carrinho</button>
-      </div>
-    </div>
-  </div>
-</div>
-                </div>
-              </div>
-                <!--Quinto container Natural-->
-                <div class="col">
-                <div class="card" style="width: 18rem;">
-                  <img src="assets\Imagens\hamburguertra.avif" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  </div>
-                  <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Comprar
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Realize seu Desejo</h5>
-       
-      </div>
-      <div class="modal-body">
-        <p class="valor-lancheP">
-          <label for="LacheP">Lanche pequeno</label>
-          <input type="text" id="LancheP"  name="valor-fixo" value="R$ 18,00" readonly>
-          
-          <label for="Qtdlache">Quantidade Lanche</label>
-          <input type="number" id="Qtdlache" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
-      </p>
-      
-      <p class="valor-lancheM">
-          <label for="LancheM">Lanche medio</label>
-          <input type="text" id="LancheM" name="valor-fixo" value="R$ 26,00" readonly>
-          
-          <label for="Qtdlache1">Quantidade Lanche</label>
-          <input type="number" id="Qtdlache1" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
-      </p>
-      
-      <p class="valor-lancheG">
-          <label for="LacnheG">Lanche grande</label>
-          <input type="text" id="LancheG" name="valor-fixo" value="R$ 30,00"readonly>
-      
-          <label for="Qtdlache2">Quantidade Lanche</label>
-          <input type="number" id="Qtdlache2" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
-      </p>
-      
-      <div class="lista-valores">
-          <ul>
-              <h4>Complementos</h4>
-              <li>
-                  <p class="valores">Valor carne extra: <span id="valor-carne">R$:6,00 </span> </p>
-              </li>
-              <p>
-                  <label id="NomeCarne" for="Qtdcarne">Quantidade Carne</label>
-                  <input type="number" id="Qtdcarne" value="0" name="Qtdcarne" min="0" max="999" onchange="atualizarValorTotal()">
-              </p>
-          </ul>
-          <div>
-          </div>
-      </div>
-      
-      <div>
-          <p class="tot">Total:<span name="total" id="total" aria-readonly="true">R$ 0.00</span></p>
-      </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-primary">Adicionar ao Carrinho</button>
-      </div>
-    </div>
-  </div>
-</div>
-                </div>
-              </div>
-              <!--Sexto container Natural-->
-              <div class="col">
-                <div class="card" style="width: 18rem;">
-                  <img src="assets\Imagens\hamburguertra.avif" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  </div>
-                  <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Comprar
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Realize seu Desejo</h5>
-       
-      </div>
-      <div class="modal-body">
-        <p class="valor-lancheP">
-          <label for="LacheP">Lanche pequeno</label>
-          <input type="text" id="LancheP"  name="valor-fixo" value="R$ 18,00" readonly>
-          
-          <label for="Qtdlache">Quantidade Lanche</label>
-          <input type="number" id="Qtdlache" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
-      </p>
-      
-      <p class="valor-lancheM">
-          <label for="LancheM">Lanche medio</label>
-          <input type="text" id="LancheM" name="valor-fixo" value="R$ 26,00" readonly>
-          
-          <label for="Qtdlache1">Quantidade Lanche</label>
-          <input type="number" id="Qtdlache1" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
-      </p>
-      
-      <p class="valor-lancheG">
-          <label for="LacnheG">Lanche grande</label>
-          <input type="text" id="LancheG" name="valor-fixo" value="R$ 30,00"readonly>
-      
-          <label for="Qtdlache2">Quantidade Lanche</label>
-          <input type="number" id="Qtdlache2" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
-      </p>
-      
-      <div class="lista-valores">
-          <ul>
-              <h4>Complementos</h4>
-              <li>
-                  <p class="valores">Valor carne extra: <span id="valor-carne">R$:6,00 </span> </p>
-              </li>
-              <p>
-                  <label id="NomeCarne" for="Qtdcarne">Quantidade Carne</label>
-                  <input type="number" id="Qtdcarne" value="0" name="Qtdcarne" min="0" max="999" onchange="atualizarValorTotal()">
-              </p>
-          </ul>
-          <div>
-          </div>
-      </div>
-      
-      <div>
-          <p class="tot">Total:<span name="total" id="total" aria-readonly="true">R$ 0.00</span></p>
-      </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-primary">Adicionar ao Carrinho</button>
-      </div>
-    </div>
-  </div>
-</div>
-                </div>
-              </div>
+  <h1>Hamburguer Natural</h1>
+  <section id="Natural">
+   <!--primeiro container Natural-->
+    <div class="container text-center" >
+      <div class="row">
+        <div class="col">
+          <div class="card" style="width: 18rem;">
+            <img src="assets\Imagens\hamburguertra.avif" id="imagem-lanche" alt="...">
+            <div class="card-body">
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             </div>
-            
-          </div>
-
-        </section>
-
-        <section>
-          <h1>Hamburguer Frango</h1>
-          <section id="Frango">
-            <!--Primeiro container Frango-->
-            <div class="container text-center" >
-              <div class="row">
-                <div class="col">
-                  <div class="card" style="width: 18rem;">
-                    <img src="assets\Imagens\hamburguertra.avif" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-                    <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Comprar
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" click="carregarImagemLanche()"  data-bs-toggle="modal" data-bs-target="#exampleModal">
+Comprar
 </button>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Realize seu Desejo</h5>
-        
-      </div>
-      <div class="modal-body">
-        <p class="valor-lancheP">
-          <label for="LacheP">Lanche pequeno</label>
-          <input type="text" id="LancheP"  name="valor-fixo" value="R$ 18,00" readonly>
-          
-          <label for="Qtdlache">Quantidade Lanche</label>
-          <input type="number" id="Qtdlache" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
-      </p>
-      
-      <p class="valor-lancheM">
-          <label for="LancheM">Lanche medio</label>
-          <input type="text" id="LancheM" name="valor-fixo" value="R$ 26,00" readonly>
-          
-          <label for="Qtdlache1">Quantidade Lanche</label>
-          <input type="number" id="Qtdlache1" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
-      </p>
-      
-      <p class="valor-lancheG">
-          <label for="LacnheG">Lanche grande</label>
-          <input type="text" id="LancheG" name="valor-fixo" value="R$ 30,00"readonly>
-      
-          <label for="Qtdlache2">Quantidade Lanche</label>
-          <input type="number" id="Qtdlache2" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
-      </p>
-      
-      <div class="lista-valores">
-          <ul>
-              <h4>Complementos</h4>
-              <li>
-                  <p class="valores">Valor carne extra: <span id="valor-carne">R$:6,00 </span> </p>
-              </li>
-              <p>
-                  <label id="NomeCarne" for="Qtdcarne">Quantidade Carne</label>
-                  <input type="number" id="Qtdcarne" value="0" name="Qtdcarne" min="0" max="999" onchange="atualizarValorTotal()">
-              </p>
-          </ul>
-          <div>
-          </div>
-      </div>
-      
-      <div>
-          <p class="tot">Total:<span name="total" id="total" aria-readonly="true">R$ 0.00</span></p>
-      </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-primary">Adicionar ao Carrinho</button>
-      </div>
-    </div>
-  </div>
-</div>
-                  </div>
-                </div>
-                <!--Segundo container Frango-->
-                <div class="col">
-                  <div class="card" style="width: 18rem;">
-                    <img src="assets\Imagens\hamburguertra.avif" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-                    <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Comprar
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Realize seu Desejo</h5>
-       
-      </div>
-      <div class="modal-body">
-        <p class="valor-lancheP">
-          <label for="LacheP">Lanche pequeno</label>
-          <input type="text" id="LancheP"  name="valor-fixo" value="R$ 18,00" readonly>
-          
-          <label for="Qtdlache">Quantidade Lanche</label>
-          <input type="number" id="Qtdlache" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
-      </p>
-      
-      <p class="valor-lancheM">
-          <label for="LancheM">Lanche medio</label>
-          <input type="text" id="LancheM" name="valor-fixo" value="R$ 26,00" readonly>
-          
-          <label for="Qtdlache1">Quantidade Lanche</label>
-          <input type="number" id="Qtdlache1" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
-      </p>
-      
-      <p class="valor-lancheG">
-          <label for="LacnheG">Lanche grande</label>
-          <input type="text" id="LancheG" name="valor-fixo" value="R$ 30,00"readonly>
-      
-          <label for="Qtdlache2">Quantidade Lanche</label>
-          <input type="number" id="Qtdlache2" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
-      </p>
-      
-      <div class="lista-valores">
-          <ul>
-              <h4>Complementos</h4>
-              <li>
-                  <p class="valores">Valor carne extra: <span id="valor-carne">R$:6,00 </span> </p>
-              </li>
-              <p>
-                  <label id="NomeCarne" for="Qtdcarne">Quantidade Carne</label>
-                  <input type="number" id="Qtdcarne" value="0" name="Qtdcarne" min="0" max="999" onchange="atualizarValorTotal()">
-              </p>
-          </ul>
-          <div>
-          </div>
-      </div>
-      
-      <div>
-          <p class="tot">Total:<span name="total" id="total" aria-readonly="true">R$ 0.00</span></p>
-      </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-primary">Adicionar ao Carrinho</button>
-      </div>
-    </div>
-  </div>
-</div>
-                  </div>
-                </div>
-                <!--Terceiro container Frango-->
-                <div class="col">
-                  <div class="card" style="width: 18rem;">
-                    <img src="assets\Imagens\hamburguertra.avif" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-                    <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Comprar
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Realize seu Desejo</h5>
-     
-      </div>
-      <div class="modal-body">
-        <p class="valor-lancheP">
-          <label for="LacheP">Lanche pequeno</label>
-          <input type="text" id="LancheP"  name="valor-fixo" value="R$ 18,00" readonly>
-          
-          <label for="Qtdlache">Quantidade Lanche</label>
-          <input type="number" id="Qtdlache" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
-      </p>
-      
-      <p class="valor-lancheM">
-          <label for="LancheM">Lanche medio</label>
-          <input type="text" id="LancheM" name="valor-fixo" value="R$ 26,00" readonly>
-          
-          <label for="Qtdlache1">Quantidade Lanche</label>
-          <input type="number" id="Qtdlache1" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
-      </p>
-      
-      <p class="valor-lancheG">
-          <label for="LacnheG">Lanche grande</label>
-          <input type="text" id="LancheG" name="valor-fixo" value="R$ 30,00"readonly>
-      
-          <label for="Qtdlache2">Quantidade Lanche</label>
-          <input type="number" id="Qtdlache2" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
-      </p>
-      
-      <div class="lista-valores">
-          <ul>
-              <h4>Complementos</h4>
-              <li>
-                  <p class="valores">Valor carne extra: <span id="valor-carne">R$:6,00 </span> </p>
-              </li>
-              <p>
-                  <label id="NomeCarne" for="Qtdcarne">Quantidade Carne</label>
-                  <input type="number" id="Qtdcarne" value="0" name="Qtdcarne" min="0" max="999" onchange="atualizarValorTotal()">
-              </p>
-          </ul>
-          <div>
-          </div>
-      </div>
-      
-      <div>
-          <p class="tot">Total:<span name="total" id="total" aria-readonly="true">R$ 0.00</span></p>
-      </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-primary">Adicionar ao Carrinho</button>
-      </div>
-    </div>
-  </div>
-</div>
-                  </div>
-                </div>
-                <!--Quarto container Frango-->
-                <div class="col">
-                  <div class="card" style="width: 18rem;">
-                    <img src="assets\Imagens\hamburguertra.avif" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-                    <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Comprar
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Realize seu Desejo</h5>
-        
-      </div>
-      <div class="modal-body">
-        <p class="valor-lancheP">
-          <label for="LacheP">Lanche pequeno</label>
-          <input type="text" id="LancheP"  name="valor-fixo" value="R$ 18,00" readonly>
-          
-          <label for="Qtdlache">Quantidade Lanche</label>
-          <input type="number" id="Qtdlache" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
-      </p>
-      
-      <p class="valor-lancheM">
-          <label for="LancheM">Lanche medio</label>
-          <input type="text" id="LancheM" name="valor-fixo" value="R$ 26,00" readonly>
-          
-          <label for="Qtdlache1">Quantidade Lanche</label>
-          <input type="number" id="Qtdlache1" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
-      </p>
-      
-      <p class="valor-lancheG">
-          <label for="LacnheG">Lanche grande</label>
-          <input type="text" id="LancheG" name="valor-fixo" value="R$ 30,00"readonly>
-      
-          <label for="Qtdlache2">Quantidade Lanche</label>
-          <input type="number" id="Qtdlache2" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
-      </p>
-      
-      <div class="lista-valores">
-          <ul>
-              <h4>Complementos</h4>
-              <li>
-                  <p class="valores">Valor carne extra: <span id="valor-carne">R$:6,00 </span> </p>
-              </li>
-              <p>
-                  <label id="NomeCarne" for="Qtdcarne">Quantidade Carne</label>
-                  <input type="number" id="Qtdcarne" value="0" name="Qtdcarne" min="0" max="999" onchange="atualizarValorTotal()">
-              </p>
-          </ul>
-          <div>
-          </div>
-      </div>
-      
-      <div>
-          <p class="tot">Total:<span name="total" id="total" aria-readonly="true">R$ 0.00</span></p>
-      </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-primary">Adicionar ao Carrinho</button>
-      </div>
-    </div>
-  </div>
-</div>
-                  </div>
-                </div>
-                <!--Quinto container Frango-->
-                <div class="col">
-                  <div class="card" style="width: 18rem;">
-                    <img src="assets\Imagens\hamburguertra.avif" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-                    <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Comprar
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Realize seu Desejo</h5>
-      
-      </div>
-      <div class="modal-body">
-        <p class="valor-lancheP">
-          <label for="LacheP">Lanche pequeno</label>
-          <input type="text" id="LancheP"  name="valor-fixo" value="R$ 18,00" readonly>
-          
-          <label for="Qtdlache">Quantidade Lanche</label>
-          <input type="number" id="Qtdlache" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
-      </p>
-      
-      <p class="valor-lancheM">
-          <label for="LancheM">Lanche medio</label>
-          <input type="text" id="LancheM" name="valor-fixo" value="R$ 26,00" readonly>
-          
-          <label for="Qtdlache1">Quantidade Lanche</label>
-          <input type="number" id="Qtdlache1" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
-      </p>
-      
-      <p class="valor-lancheG">
-          <label for="LacnheG">Lanche grande</label>
-          <input type="text" id="LancheG" name="valor-fixo" value="R$ 30,00"readonly>
-      
-          <label for="Qtdlache2">Quantidade Lanche</label>
-          <input type="number" id="Qtdlache2" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
-      </p>
-      
-      <div class="lista-valores">
-          <ul>
-              <h4>Complementos</h4>
-              <li>
-                  <p class="valores">Valor carne extra: <span id="valor-carne">R$:6,00 </span> </p>
-              </li>
-              <p>
-                  <label id="NomeCarne" for="Qtdcarne">Quantidade Carne</label>
-                  <input type="number" id="Qtdcarne" value="0" name="Qtdcarne" min="0" max="999" onchange="atualizarValorTotal()">
-              </p>
-          </ul>
-          <div>
-          </div>
-      </div>
-      
-      <div>
-          <p class="tot">Total:<span name="total" id="total" aria-readonly="true">R$ 0.00</span></p>
-      </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-primary">Adicionar ao Carrinho</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-                  </div>
-                </div>
-                <!--Sexto container Frango-->
-                <div class="col">
-                  <div class="card" style="width: 18rem;">
-                    <img src="assets\Imagens\hamburguertra.avif" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-                    <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-Comprar</button>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Realize seu Desejo</h5>
-        
-      </div>
-      <div class="modal-body">
-        <p class="valor-lancheP">
-          <label for="LacheP">Lanche pequeno</label>
-          <input type="text" id="LancheP"  name="valor-fixo" value="R$ 18,00" readonly>
-          
-          <label for="Qtdlache">Quantidade Lanche</label>
-          <input type="number" id="Qtdlache" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
-      </p>
-      
-      <p class="valor-lancheM">
-          <label for="LancheM">Lanche medio</label>
-          <input type="text" id="LancheM" name="valor-fixo" value="R$ 26,00" readonly>
-          
-          <label for="Qtdlache1">Quantidade Lanche</label>
-          <input type="number" id="Qtdlache1" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
-      </p>
-      
-      <p class="valor-lancheG">
-          <label for="LacnheG">Lanche grande</label>
-          <input type="text" id="LancheG" name="valor-fixo" value="R$ 30,00"readonly>
-      
-          <label for="Qtdlache2">Quantidade Lanche</label>
-          <input type="number" id="Qtdlache2" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
-      </p>
-      
-      <div class="lista-valores">
-          <ul>
-              <h4>Complementos</h4>
-              <li>
-                  <p class="valores">Valor carne extra: <span id="valor-carne">R$:6,00 </span> </p>
-              </li>
-              <p>
-                  <label id="NomeCarne" for="Qtdcarne">Quantidade Carne</label>
-                  <input type="number" id="Qtdcarne" value="0" name="Qtdcarne" min="0" max="999" onchange="atualizarValorTotal()">
-              </p>
-          </ul>
-          <div>
-          </div>
-      </div>
-      
-      <div>
-          <p class="tot">Total:<span name="total" id="total" aria-readonly="true">R$ 0.00</span></p>
-      </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-primary">Adicionar ao Carrinho</button>
-      </div>
-    </div>
-  </div>
-</div>
-                  </div>
-                </div>
-              </div>
-              
-            </div>
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+  <h5 class="modal-title" id="exampleModalLabel">Realize seu Desejo </h5>
   
-          </section>
-
-
-          <section>
-            <h1>Hamburguer Calabresa</h1>
-            <section id="Calabresa">
-              <!--Primeiro container Calabresa-->
-              <div class="container text-center" >
-                <div class="row">
-                  <div class="col">
-                    <div class="card" style="width: 18rem;">
-                      <img src="assets\Imagens\hamburguertra.avif" class="card-img-top" alt="...">
-                      <div class="card-body">
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      </div>
-                      <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Comprar
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Realize seu Desejo</h5>
-       
-      </div>
-      <div class="modal-body">
-        <p class="valor-lancheP">
-          <label for="LacheP">Lanche pequeno</label>
-          <input type="text" id="LancheP"  name="valor-fixo" value="R$ 18,00" readonly>
-          
-          <label for="Qtdlache">Quantidade Lanche</label>
-          <input type="number" id="Qtdlache" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
-      </p>
-      
-      <p class="valor-lancheM">
-          <label for="LancheM">Lanche medio</label>
-          <input type="text" id="LancheM" name="valor-fixo" value="R$ 26,00" readonly>
-          
-          <label for="Qtdlache1">Quantidade Lanche</label>
-          <input type="number" id="Qtdlache1" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
-      </p>
-      
-      <p class="valor-lancheG">
-          <label for="LacnheG">Lanche grande</label>
-          <input type="text" id="LancheG" name="valor-fixo" value="R$ 30,00"readonly>
-      
-          <label for="Qtdlache2">Quantidade Lanche</label>
-          <input type="number" id="Qtdlache2" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
-      </p>
-      
-      <div class="lista-valores">
-          <ul>
-              <h4>Complementos</h4>
-              <li>
-                  <p class="valores">Valor carne extra: <span id="valor-carne">R$:6,00 </span> </p>
-              </li>
-              <p>
-                  <label id="NomeCarne" for="Qtdcarne">Quantidade Carne</label>
-                  <input type="number" id="Qtdcarne" value="0" name="Qtdcarne" min="0" max="999" onchange="atualizarValorTotal()">
-              </p>
-          </ul>
-          <div>
-          </div>
-      </div>
-      
-      <div>
-          <p class="tot">Total:<span name="total" id="total" aria-readonly="true">R$ 0.00</span></p>
-      </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-primary">Adicionar ao Carrinho</button>
-      </div>
-    </div>
-  </div>
 </div>
-                    </div>
-                  </div>
-                  <!--Segundo container Calabresa-->
-                  <div class="col">
-                    <div class="card" style="width: 18rem;">
-                      <img src="assets\Imagens\hamburguertra.avif" class="card-img-top" alt="...">
-                      <div class="card-body">
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      </div>
-                      <!-- Button trigger modal -->
+<div class="modal-body">
+  <div  id="ImagemModal" alt="Imagem do Produto no Modal">
+  <img [src]="PassarImagemoutraPaginaService['caminhoImagemModal']" class="img-fluid" alt="">
+</div>
+<div class="Precosmodal">
+  <p class="valor-lancheP">
+    <label for="LacheP">Lanche pequeno</label>
+    <input type="text" id="LancheP"  name="valor-fixo" value="R$ 18,00" readonly>
+    
+    
+    <label for="Qtdlache">Quantidade Lanche</label>
+    <input type="number" id="Qtdlache" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
+</p>
+
+<p class="valor-lancheM">
+    <label for="LancheM">Lanche medio</label>
+    <input type="text" id="LancheM" name="valor-fixo" value="R$ 26,00" readonly>
+    
+    
+    <label for="Qtdlache1">Quantidade Lanche</label>
+    <input type="number" id="Qtdlache1" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
+</p>
+
+<p class="valor-lancheG">
+    <label for="LacnheG">Lanche grande</label>
+    <input type="text" id="LancheG" name="valor-fixo" value="R$ 30,00"readonly>
+
+    <label for="Qtdlache2">Quantidade Lanche</label>
+    <input type="number" id="Qtdlache2" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
+</p>
+
+<div class="lista-valores">
+    
+      <div class="container-Container">
+        <h4>Complementos</h4>
+        </div>
+        <div class="Valores-carne">
+          <ul class="valores">
+        <li>
+            <p >Valor carne extra: <span id="valor-carne">R$:6,00 </span> </p>
+        </li>
+      </ul>
+        <ul class="Contaneir-QTD">
+        <p class="Containers-Qtd">
+            <label id="NomeCarne" for="Qtdcarne" class = "nomeQtd">Quantidade Carne</label>
+            <input type="number" id="Qtdcarne" value="0" name="Qtdcarne" min="0" max="999" onchange="atualizarValorTotal()">
+        </p>
+        <p class="Containers-Qtd">
+          <label id="NomeBacon" class = "nomeQtd"for="Qtdcarne">Quantidade Bacon</label>
+          <input type="number" id="QtdBacon" value="0" name="QtdBacon" min="0" max="999" onchange="atualizarValorTotal()">
+      </p>
+      <p class="Containers-Qtd">
+        <label id="NomeQueijo" for="Qtdcarne" class = "nomeQtd">Quantidade Queijo</label>
+        <input type="number" id="QtdQueijo" value="0" name="QtdQueijo" min="0" max="999" onchange="atualizarValorTotal()">
+    </p>
+        </ul>
+        </div>
+    <div>
+    </div>
+</div>
+</div>
+<div>
+    <p class="tot">Total:<span name="total" id="total" aria-readonly="true">R$ 0.00</span></p>
+</div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+<a><button type="button" class="btn btn-primary" click="adicionarAoCarrinho()" routerLink='/carro' routerLinkActive="router-link-active">Adicionar ao Carrinho</button></a>
+</div>
+</div>
+</div>
+</div>
+          </div>
+        </div>
+
+       <!--primeiro container Natural-->
+        <div class="col">
+          <div class="card" style="width: 18rem;">
+            <img src="assets\Imagens\hamburguertra.avif" class="card-img-top" alt="...">
+            <div class="card-body">
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+            <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
 Comprar
 </button>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Realize seu Desejo</h5>
-        
-      </div>
-      <div class="modal-body">
-        <p class="valor-lancheP">
-          <label for="LacheP">Lanche pequeno</label>
-          <input type="text" id="LancheP"  name="valor-fixo" value="R$ 18,00" readonly>
-          
-          <label for="Qtdlache">Quantidade Lanche</label>
-          <input type="number" id="Qtdlache" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
-      </p>
-      
-      <p class="valor-lancheM">
-          <label for="LancheM">Lanche medio</label>
-          <input type="text" id="LancheM" name="valor-fixo" value="R$ 26,00" readonly>
-          
-          <label for="Qtdlache1">Quantidade Lanche</label>
-          <input type="number" id="Qtdlache1" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
-      </p>
-      
-      <p class="valor-lancheG">
-          <label for="LacnheG">Lanche grande</label>
-          <input type="text" id="LancheG" name="valor-fixo" value="R$ 30,00"readonly>
-      
-          <label for="Qtdlache2">Quantidade Lanche</label>
-          <input type="number" id="Qtdlache2" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
-      </p>
-      
-      <div class="lista-valores">
-          <ul>
-              <h4>Complementos</h4>
-              <li>
-                  <p class="valores">Valor carne extra: <span id="valor-carne">R$:6,00 </span> </p>
-              </li>
-              <p>
-                  <label id="NomeCarne" for="Qtdcarne">Quantidade Carne</label>
-                  <input type="number" id="Qtdcarne" value="0" name="Qtdcarne" min="0" max="999" onchange="atualizarValorTotal()">
-              </p>
-          </ul>
-          <div>
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+  <h5 class="modal-title" id="exampleModalLabel">Realize seu Desejo</h5>
+  
+</div>
+<div class="modal-body">
+  <p class="valor-lancheP">
+    <label for="LacheP">Lanche pequeno</label>
+    <input type="text" id="LancheP"  name="valor-fixo" value="R$ 18,00" readonly>
+    
+    <label for="Qtdlache">Quantidade Lanche</label>
+    <input type="number" id="Qtdlache" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
+</p>
+
+<p class="valor-lancheM">
+    <label for="LancheM">Lanche medio</label>
+    <input type="text" id="LancheM" name="valor-fixo" value="R$ 26,00" readonly>
+    
+    <label for="Qtdlache1">Quantidade Lanche</label>
+    <input type="number" id="Qtdlache1" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
+</p>
+
+<p class="valor-lancheG">
+    <label for="LacnheG">Lanche grande</label>
+    <input type="text" id="LancheG" name="valor-fixo" value="R$ 30,00"readonly>
+
+    <label for="Qtdlache2">Quantidade Lanche</label>
+    <input type="number" id="Qtdlache2" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
+</p>
+
+<div class="lista-valores">
+    <ul>
+        <h4>Complementos</h4>
+        <li>
+            <p class="valores">Valor carne extra: <span id="valor-carne">R$:6,00 </span> </p>
+        </li>
+        <p>
+            <label id="NomeCarne" for="Qtdcarne">Quantidade Carne</label>
+            <input type="number" id="Qtdcarne" value="0" name="Qtdcarne" min="0" max="999" onchange="atualizarValorTotal()">
+        </p>
+    </ul>
+    <div>
+    </div>
+</div>
+
+<div>
+    <p class="tot">Total:<span name="total" id="total" aria-readonly="true">R$ 0.00</span></p>
+</div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+  <a><button type="button" class="btn btn-primary" click="adicionarAoCarrinho()" routerLink='/carro' routerLinkActive="router-link-active">Adicionar ao Carrinho</button></a>
+</div>
+</div>
+</div>
+</div>
           </div>
-      </div>
-      
-      <div>
-          <p class="tot">Total:<span name="total" id="total" aria-readonly="true">R$ 0.00</span></p>
-      </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-primary">Adicionar ao Carrinho</button>
+        </div>
+        <!--primeiro container Natural-->
+        
+        <div class="col">
+          <div class="card" style="width: 18rem;">
+            <img src="assets\Imagens\hamburguertra.avif" class="card-img-top" alt="...">
+            <div class="card-body">
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+            <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+Comprar
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+  <h5 class="modal-title" id="exampleModalLabel">Realize seu Desejo</h5>
+  
+</div>
+<div class="modal-body">
+  <p class="valor-lancheP">
+    <label for="LacheP">Lanche pequeno</label>
+    <input type="text" id="LancheP"  name="valor-fixo" value="R$ 18,00" readonly>
+    
+    <label for="Qtdlache">Quantidade Lanche</label>
+    <input type="number" id="Qtdlache" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
+</p>
+
+<p class="valor-lancheM">
+    <label for="LancheM">Lanche medio</label>
+    <input type="text" id="LancheM" name="valor-fixo" value="R$ 26,00" readonly>
+    
+    <label for="Qtdlache1">Quantidade Lanche</label>
+    <input type="number" id="Qtdlache1" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
+</p>
+
+<p class="valor-lancheG">
+    <label for="LacnheG">Lanche grande</label>
+    <input type="text" id="LancheG" name="valor-fixo" value="R$ 30,00"readonly>
+
+    <label for="Qtdlache2">Quantidade Lanche</label>
+    <input type="number" id="Qtdlache2" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
+</p>
+
+<div class="lista-valores">
+    <ul>
+        <h4>Complementos</h4>
+        <li>
+            <p class="valores">Valor carne extra: <span id="valor-carne">R$:6,00 </span> </p>
+        </li>
+        <p>
+            <label id="NomeCarne" for="Qtdcarne">Quantidade Carne</label>
+            <input type="number" id="Qtdcarne" value="0" name="Qtdcarne" min="0" max="999" onchange="atualizarValorTotal()">
+        </p>
+    </ul>
+    <div>
+    </div>
+</div>
+
+<div>
+    <p class="tot">Total:<span name="total" id="total" aria-readonly="true">R$ 0.00</span></p>
+</div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+  <a><button type="button" class="btn btn-primary" click="adicionarAoCarrinho()" routerLink='/carro' routerLinkActive="router-link-active">Adicionar ao Carrinho</button></a>
+</div>
+</div>
+</div>
+</div>
+          </div>
+        </div>
+<!--primeiro container Natural-->
+        
+<div class="col">
+<div class="card" style="width: 18rem;">
+<img src="assets\Imagens\hamburguertra.avif" class="card-img-top" alt="...">
+<div class="card-body">
+<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+</div>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+Comprar
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="exampleModalLabel">Realize seu Desejo</h5>
+
+</div>
+<div class="modal-body">
+<p class="valor-lancheP">
+<label for="LacheP">Lanche pequeno</label>
+<input type="text" id="LancheP"  name="valor-fixo" value="R$ 18,00" readonly>
+
+<label for="Qtdlache">Quantidade Lanche</label>
+<input type="number" id="Qtdlache" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
+</p>
+
+<p class="valor-lancheM">
+<label for="LancheM">Lanche medio</label>
+<input type="text" id="LancheM" name="valor-fixo" value="R$ 26,00" readonly>
+
+<label for="Qtdlache1">Quantidade Lanche</label>
+<input type="number" id="Qtdlache1" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
+</p>
+
+<p class="valor-lancheG">
+<label for="LacnheG">Lanche grande</label>
+<input type="text" id="LancheG" name="valor-fixo" value="R$ 30,00"readonly>
+
+<label for="Qtdlache2">Quantidade Lanche</label>
+<input type="number" id="Qtdlache2" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
+</p>
+
+<div class="lista-valores">
+<ul>
+<h4>Complementos</h4>
+<li>
+<p class="valores">Valor carne extra: <span id="valor-carne">R$:6,00 </span> </p>
+</li>
+<p>
+<label id="NomeCarne" for="Qtdcarne">Quantidade Carne</label>
+<input type="number" id="Qtdcarne" value="0" name="Qtdcarne" min="0" max="999" onchange="atualizarValorTotal()">
+</p>
+</ul>
+<div>
+</div>
+</div>
+
+<div>
+<p class="tot">Total:<span name="total" id="total" aria-readonly="true">R$ 0.00</span></p>
+</div>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+<a><button type="button" class="btn btn-primary" click="adicionarAoCarrinho()" routerLink='/carro' routerLinkActive="router-link-active">Adicionar ao Carrinho</button></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!--primeiro container Natural-->
+        
+<div class="col">
+<div class="card" style="width: 18rem;">
+<img src="assets\Imagens\hamburguertra.avif" class="card-img-top" alt="...">
+<div class="card-body">
+<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+</div>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+Comprar
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="exampleModalLabel">Realize seu Desejo</h5>
+
+</div>
+<div class="modal-body">
+<p class="valor-lancheP">
+<label for="LacheP">Lanche pequeno</label>
+<input type="text" id="LancheP"  name="valor-fixo" value="R$ 18,00" readonly>
+
+<label for="Qtdlache">Quantidade Lanche</label>
+<input type="number" id="Qtdlache" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
+</p>
+
+<p class="valor-lancheM">
+<label for="LancheM">Lanche medio</label>
+<input type="text" id="LancheM" name="valor-fixo" value="R$ 26,00" readonly>
+
+<label for="Qtdlache1">Quantidade Lanche</label>
+<input type="number" id="Qtdlache1" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
+</p>
+
+<p class="valor-lancheG">
+<label for="LacnheG">Lanche grande</label>
+<input type="text" id="LancheG" name="valor-fixo" value="R$ 30,00"readonly>
+
+<label for="Qtdlache2">Quantidade Lanche</label>
+<input type="number" id="Qtdlache2" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
+</p>
+
+<div class="lista-valores">
+<ul>
+<h4>Complementos</h4>
+<li>
+<p class="valores">Valor carne extra: <span id="valor-carne">R$:6,00 </span> </p>
+</li>
+<p>
+<label id="NomeCarne" for="Qtdcarne">Quantidade Carne</label>
+<input type="number" id="Qtdcarne" value="0" name="Qtdcarne" min="0" max="999" onchange="atualizarValorTotal()">
+</p>
+</ul>
+<div>
+</div>
+</div>
+
+<div>
+<p class="tot">Total:<span name="total" id="total" aria-readonly="true">R$ 0.00</span></p>
+</div>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+<a><button type="button" class="btn btn-primary" click="adicionarAoCarrinho()" routerLink='/carro' routerLinkActive="router-link-active">Adicionar ao Carrinho</button></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+        <!--primeiro container Natural-->
+        
+        <div class="col">
+          <div class="card" style="width: 18rem;">
+            <img src="assets\Imagens\hamburguertra.avif" class="card-img-top" alt="...">
+            <div class="card-body">
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+            <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+Comprar
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+  <h5 class="modal-title" id="exampleModalLabel">Realize seu Desejo</h5>
+  
+</div>
+<div class="modal-body">
+  <p class="valor-lancheP">
+    <label for="LacheP">Lanche pequeno</label>
+    <input type="text" id="LancheP"  name="valor-fixo" value="R$ 18,00" readonly>
+    
+    <label for="Qtdlache">Quantidade Lanche</label>
+    <input type="number" id="Qtdlache" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
+</p>
+
+<p class="valor-lancheM">
+    <label for="LancheM">Lanche medio</label>
+    <input type="text" id="LancheM" name="valor-fixo" value="R$ 26,00" readonly>
+    
+    <label for="Qtdlache1">Quantidade Lanche</label>
+    <input type="number" id="Qtdlache1" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
+</p>
+
+<p class="valor-lancheG">
+    <label for="LacnheG">Lanche grande</label>
+    <input type="text" id="LancheG" name="valor-fixo" value="R$ 30,00"readonly>
+
+    <label for="Qtdlache2">Quantidade Lanche</label>
+    <input type="number" id="Qtdlache2" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
+</p>
+
+<div class="lista-valores">
+    <ul>
+        <h4>Complementos</h4>
+        <li>
+            <p class="valores">Valor carne extra: <span id="valor-carne">R$:6,00 </span> </p>
+        </li>
+        <p>
+            <label id="NomeCarne" for="Qtdcarne">Quantidade Carne</label>
+            <input type="number" id="Qtdcarne" value="0" name="Qtdcarne" min="0" max="999" onchange="atualizarValorTotal()">
+        </p>
+    </ul>
+    <div>
+    </div>
+</div>
+
+<div>
+    <p class="tot">Total:<span name="total" id="total" aria-readonly="true">R$ 0.00</span></p>
+</div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+  <a><button type="button" class="btn btn-primary" click="adicionarAoCarrinho()" routerLink='/carro' routerLinkActive="router-link-active">Adicionar ao Carrinho</button></a>
+</div>
+</div>
+</div>
+</div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
+    
+  
+  </section>
+          
+        
+
+        
+<section>
+  <h1>Hamburguer de Frango</h1>
+  <section id="Frango">
+    <!--primeiro container Frango-->
+    <div class="container text-center" >
+      <div class="row">
+        <div class="col">
+          <div class="card" style="width: 18rem;">
+            <img src="assets\Imagens\hamburguertra.avif" id="imagem-lanche" alt="...">
+            <div class="card-body">
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" click="carregarImagemLanche()"  data-bs-toggle="modal" data-bs-target="#exampleModal">
+Comprar
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+  <h5 class="modal-title" id="exampleModalLabel">Realize seu Desejo </h5>
+  
 </div>
-                    </div>
+<div class="modal-body">
+  <div  id="ImagemModal" alt="Imagem do Produto no Modal">
+  <img [src]="PassarImagemoutraPaginaService['caminhoImagemModal']" class="img-fluid" alt="">
+</div>
+<div class="Precosmodal">
+  <p class="valor-lancheP">
+    <label for="LacheP">Lanche pequeno</label>
+    <input type="text" id="LancheP"  name="valor-fixo" value="R$ 18,00" readonly>
+    
+    
+    <label for="Qtdlache">Quantidade Lanche</label>
+    <input type="number" id="Qtdlache" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
+</p>
+
+<p class="valor-lancheM">
+    <label for="LancheM">Lanche medio</label>
+    <input type="text" id="LancheM" name="valor-fixo" value="R$ 26,00" readonly>
+    
+    
+    <label for="Qtdlache1">Quantidade Lanche</label>
+    <input type="number" id="Qtdlache1" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
+</p>
+
+<p class="valor-lancheG">
+    <label for="LacnheG">Lanche grande</label>
+    <input type="text" id="LancheG" name="valor-fixo" value="R$ 30,00"readonly>
+
+    <label for="Qtdlache2">Quantidade Lanche</label>
+    <input type="number" id="Qtdlache2" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
+</p>
+
+<div class="lista-valores">
+    
+      <div class="container-Container">
+        <h4>Complementos</h4>
+        </div>
+        <div class="Valores-carne">
+          <ul class="valores">
+        <li>
+            <p >Valor carne extra: <span id="valor-carne">R$:6,00 </span> </p>
+        </li>
+      </ul>
+        <ul class="Contaneir-QTD">
+        <p class="Containers-Qtd">
+            <label id="NomeCarne" for="Qtdcarne" class = "nomeQtd">Quantidade Carne</label>
+            <input type="number" id="Qtdcarne" value="0" name="Qtdcarne" min="0" max="999" onchange="atualizarValorTotal()">
+        </p>
+        <p class="Containers-Qtd">
+          <label id="NomeBacon" class = "nomeQtd"for="Qtdcarne">Quantidade Bacon</label>
+          <input type="number" id="QtdBacon" value="0" name="QtdBacon" min="0" max="999" onchange="atualizarValorTotal()">
+      </p>
+      <p class="Containers-Qtd">
+        <label id="NomeQueijo" for="Qtdcarne" class = "nomeQtd">Quantidade Queijo</label>
+        <input type="number" id="QtdQueijo" value="0" name="QtdQueijo" min="0" max="999" onchange="atualizarValorTotal()">
+    </p>
+        </ul>
+        </div>
+    <div>
+    </div>
+</div>
+</div>
+<div>
+    <p class="tot">Total:<span name="total" id="total" aria-readonly="true">R$ 0.00</span></p>
+</div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+<a><button type="button" class="btn btn-primary" click="adicionarAoCarrinho()" routerLink='/carro' routerLinkActive="router-link-active">Adicionar ao Carrinho</button></a>
+</div>
+</div>
+</div>
+</div>
+          </div>
+        </div>
+
+        <!--primeiro container Frango-->
+        <div class="col">
+          <div class="card" style="width: 18rem;">
+            <img src="assets\Imagens\hamburguertra.avif" class="card-img-top" alt="...">
+            <div class="card-body">
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+            <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+Comprar
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+  <h5 class="modal-title" id="exampleModalLabel">Realize seu Desejo</h5>
+  
+</div>
+<div class="modal-body">
+  <p class="valor-lancheP">
+    <label for="LacheP">Lanche pequeno</label>
+    <input type="text" id="LancheP"  name="valor-fixo" value="R$ 18,00" readonly>
+    
+    <label for="Qtdlache">Quantidade Lanche</label>
+    <input type="number" id="Qtdlache" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
+</p>
+
+<p class="valor-lancheM">
+    <label for="LancheM">Lanche medio</label>
+    <input type="text" id="LancheM" name="valor-fixo" value="R$ 26,00" readonly>
+    
+    <label for="Qtdlache1">Quantidade Lanche</label>
+    <input type="number" id="Qtdlache1" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
+</p>
+
+<p class="valor-lancheG">
+    <label for="LacnheG">Lanche grande</label>
+    <input type="text" id="LancheG" name="valor-fixo" value="R$ 30,00"readonly>
+
+    <label for="Qtdlache2">Quantidade Lanche</label>
+    <input type="number" id="Qtdlache2" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
+</p>
+
+<div class="lista-valores">
+    <ul>
+        <h4>Complementos</h4>
+        <li>
+            <p class="valores">Valor carne extra: <span id="valor-carne">R$:6,00 </span> </p>
+        </li>
+        <p>
+            <label id="NomeCarne" for="Qtdcarne">Quantidade Carne</label>
+            <input type="number" id="Qtdcarne" value="0" name="Qtdcarne" min="0" max="999" onchange="atualizarValorTotal()">
+        </p>
+    </ul>
+    <div>
+    </div>
+</div>
+
+<div>
+    <p class="tot">Total:<span name="total" id="total" aria-readonly="true">R$ 0.00</span></p>
+</div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+  <a><button type="button" class="btn btn-primary" click="adicionarAoCarrinho()" routerLink='/carro' routerLinkActive="router-link-active">Adicionar ao Carrinho</button></a>
+</div>
+</div>
+</div>
+</div>
+          </div>
+        </div>
+         <!--primeiro container Frango-->
+        
+        <div class="col">
+          <div class="card" style="width: 18rem;">
+            <img src="assets\Imagens\hamburguertra.avif" class="card-img-top" alt="...">
+            <div class="card-body">
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+            <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+Comprar
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+  <h5 class="modal-title" id="exampleModalLabel">Realize seu Desejo</h5>
+  
+</div>
+<div class="modal-body">
+  <p class="valor-lancheP">
+    <label for="LacheP">Lanche pequeno</label>
+    <input type="text" id="LancheP"  name="valor-fixo" value="R$ 18,00" readonly>
+    
+    <label for="Qtdlache">Quantidade Lanche</label>
+    <input type="number" id="Qtdlache" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
+</p>
+
+<p class="valor-lancheM">
+    <label for="LancheM">Lanche medio</label>
+    <input type="text" id="LancheM" name="valor-fixo" value="R$ 26,00" readonly>
+    
+    <label for="Qtdlache1">Quantidade Lanche</label>
+    <input type="number" id="Qtdlache1" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
+</p>
+
+<p class="valor-lancheG">
+    <label for="LacnheG">Lanche grande</label>
+    <input type="text" id="LancheG" name="valor-fixo" value="R$ 30,00"readonly>
+
+    <label for="Qtdlache2">Quantidade Lanche</label>
+    <input type="number" id="Qtdlache2" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
+</p>
+
+<div class="lista-valores">
+    <ul>
+        <h4>Complementos</h4>
+        <li>
+            <p class="valores">Valor carne extra: <span id="valor-carne">R$:6,00 </span> </p>
+        </li>
+        <p>
+            <label id="NomeCarne" for="Qtdcarne">Quantidade Carne</label>
+            <input type="number" id="Qtdcarne" value="0" name="Qtdcarne" min="0" max="999" onchange="atualizarValorTotal()">
+        </p>
+    </ul>
+    <div>
+    </div>
+</div>
+
+<div>
+    <p class="tot">Total:<span name="total" id="total" aria-readonly="true">R$ 0.00</span></p>
+</div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+  <a><button type="button" class="btn btn-primary" click="adicionarAoCarrinho()" routerLink='/carro' routerLinkActive="router-link-active">Adicionar ao Carrinho</button></a>
+</div>
+</div>
+</div>
+</div>
+          </div>
+        </div>
+ <!--primeiro container Frango-->
+        
+<div class="col">
+<div class="card" style="width: 18rem;">
+<img src="assets\Imagens\hamburguertra.avif" class="card-img-top" alt="...">
+<div class="card-body">
+<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+</div>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+Comprar
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="exampleModalLabel">Realize seu Desejo</h5>
+
+</div>
+<div class="modal-body">
+<p class="valor-lancheP">
+<label for="LacheP">Lanche pequeno</label>
+<input type="text" id="LancheP"  name="valor-fixo" value="R$ 18,00" readonly>
+
+<label for="Qtdlache">Quantidade Lanche</label>
+<input type="number" id="Qtdlache" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
+</p>
+
+<p class="valor-lancheM">
+<label for="LancheM">Lanche medio</label>
+<input type="text" id="LancheM" name="valor-fixo" value="R$ 26,00" readonly>
+
+<label for="Qtdlache1">Quantidade Lanche</label>
+<input type="number" id="Qtdlache1" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
+</p>
+
+<p class="valor-lancheG">
+<label for="LacnheG">Lanche grande</label>
+<input type="text" id="LancheG" name="valor-fixo" value="R$ 30,00"readonly>
+
+<label for="Qtdlache2">Quantidade Lanche</label>
+<input type="number" id="Qtdlache2" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
+</p>
+
+<div class="lista-valores">
+<ul>
+<h4>Complementos</h4>
+<li>
+<p class="valores">Valor carne extra: <span id="valor-carne">R$:6,00 </span> </p>
+</li>
+<p>
+<label id="NomeCarne" for="Qtdcarne">Quantidade Carne</label>
+<input type="number" id="Qtdcarne" value="0" name="Qtdcarne" min="0" max="999" onchange="atualizarValorTotal()">
+</p>
+</ul>
+<div>
+</div>
+</div>
+
+<div>
+<p class="tot">Total:<span name="total" id="total" aria-readonly="true">R$ 0.00</span></p>
+</div>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+<a><button type="button" class="btn btn-primary" click="adicionarAoCarrinho()" routerLink='/carro' routerLinkActive="router-link-active">Adicionar ao Carrinho</button></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+ <!--primeiro container Frango-->
+        
+<div class="col">
+<div class="card" style="width: 18rem;">
+<img src="assets\Imagens\hamburguertra.avif" class="card-img-top" alt="...">
+<div class="card-body">
+<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+</div>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+Comprar
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="exampleModalLabel">Realize seu Desejo</h5>
+
+</div>
+<div class="modal-body">
+<p class="valor-lancheP">
+<label for="LacheP">Lanche pequeno</label>
+<input type="text" id="LancheP"  name="valor-fixo" value="R$ 18,00" readonly>
+
+<label for="Qtdlache">Quantidade Lanche</label>
+<input type="number" id="Qtdlache" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
+</p>
+
+<p class="valor-lancheM">
+<label for="LancheM">Lanche medio</label>
+<input type="text" id="LancheM" name="valor-fixo" value="R$ 26,00" readonly>
+
+<label for="Qtdlache1">Quantidade Lanche</label>
+<input type="number" id="Qtdlache1" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
+</p>
+
+<p class="valor-lancheG">
+<label for="LacnheG">Lanche grande</label>
+<input type="text" id="LancheG" name="valor-fixo" value="R$ 30,00"readonly>
+
+<label for="Qtdlache2">Quantidade Lanche</label>
+<input type="number" id="Qtdlache2" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
+</p>
+
+<div class="lista-valores">
+<ul>
+<h4>Complementos</h4>
+<li>
+<p class="valores">Valor carne extra: <span id="valor-carne">R$:6,00 </span> </p>
+</li>
+<p>
+<label id="NomeCarne" for="Qtdcarne">Quantidade Carne</label>
+<input type="number" id="Qtdcarne" value="0" name="Qtdcarne" min="0" max="999" onchange="atualizarValorTotal()">
+</p>
+</ul>
+<div>
+</div>
+</div>
+
+<div>
+<p class="tot">Total:<span name="total" id="total" aria-readonly="true">R$ 0.00</span></p>
+</div>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+<a><button type="button" class="btn btn-primary" click="adicionarAoCarrinho()" routerLink='/carro' routerLinkActive="router-link-active">Adicionar ao Carrinho</button></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+        <!--primeiro container Frango-->
+        
+        <div class="col">
+          <div class="card" style="width: 18rem;">
+            <img src="assets\Imagens\hamburguertra.avif" class="card-img-top" alt="...">
+            <div class="card-body">
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+            <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+Comprar
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+  <h5 class="modal-title" id="exampleModalLabel">Realize seu Desejo</h5>
+  
+</div>
+<div class="modal-body">
+  <p class="valor-lancheP">
+    <label for="LacheP">Lanche pequeno</label>
+    <input type="text" id="LancheP"  name="valor-fixo" value="R$ 18,00" readonly>
+    
+    <label for="Qtdlache">Quantidade Lanche</label>
+    <input type="number" id="Qtdlache" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
+</p>
+
+<p class="valor-lancheM">
+    <label for="LancheM">Lanche medio</label>
+    <input type="text" id="LancheM" name="valor-fixo" value="R$ 26,00" readonly>
+    
+    <label for="Qtdlache1">Quantidade Lanche</label>
+    <input type="number" id="Qtdlache1" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
+</p>
+
+<p class="valor-lancheG">
+    <label for="LacnheG">Lanche grande</label>
+    <input type="text" id="LancheG" name="valor-fixo" value="R$ 30,00"readonly>
+
+    <label for="Qtdlache2">Quantidade Lanche</label>
+    <input type="number" id="Qtdlache2" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
+</p>
+
+<div class="lista-valores">
+    <ul>
+        <h4>Complementos</h4>
+        <li>
+            <p class="valores">Valor carne extra: <span id="valor-carne">R$:6,00 </span> </p>
+        </li>
+        <p>
+            <label id="NomeCarne" for="Qtdcarne">Quantidade Carne</label>
+            <input type="number" id="Qtdcarne" value="0" name="Qtdcarne" min="0" max="999" onchange="atualizarValorTotal()">
+        </p>
+    </ul>
+    <div>
+    </div>
+</div>
+
+<div>
+    <p class="tot">Total:<span name="total" id="total" aria-readonly="true">R$ 0.00</span></p>
+</div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+  <a><button type="button" class="btn btn-primary" click="adicionarAoCarrinho()" routerLink='/carro' routerLinkActive="router-link-active">Adicionar ao Carrinho</button></a>
+</div>
+</div>
+</div>
+</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  
+  </section>
+          <section>
+            <h1>Hamburguer Calabresa</h1>
+            <section id="Calabresa">
+              <!--primeiro container Calabresa-->
+               <div class="container text-center" >
+                 <div class="row">
+                   <div class="col">
+                     <div class="card" style="width: 18rem;">
+                       <img src="assets\Imagens\hamburguertra.avif" id="imagem-lanche" alt="...">
+                       <div class="card-body">
+                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                       </div>
+     <!-- Button trigger modal -->
+     <button type="button" class="btn btn-primary" click="carregarImagemLanche()"  data-bs-toggle="modal" data-bs-target="#exampleModal">
+       Comprar
+     </button>
+     
+     <!-- Modal -->
+     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+       <div class="modal-dialog">
+         <div class="modal-content">
+           <div class="modal-header">
+             <h5 class="modal-title" id="exampleModalLabel">Realize seu Desejo </h5>
+             
+           </div>
+           <div class="modal-body">
+             <div  id="ImagemModal" alt="Imagem do Produto no Modal">
+             <img [src]="PassarImagemoutraPaginaService['caminhoImagemModal']"class="img-fluid" alt="">
+           </div>
+           <div class="Precosmodal">
+             <p class="valor-lancheP">
+               <label for="LacheP">Lanche pequeno</label>
+               <input type="text" id="LancheP"  name="valor-fixo" value="R$ 18,00" readonly>
+               
+               
+               <label for="Qtdlache">Quantidade Lanche</label>
+               <input type="number" id="Qtdlache" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
+           </p>
+           
+           <p class="valor-lancheM">
+               <label for="LancheM">Lanche medio</label>
+               <input type="text" id="LancheM" name="valor-fixo" value="R$ 26,00" readonly>
+               
+               
+               <label for="Qtdlache1">Quantidade Lanche</label>
+               <input type="number" id="Qtdlache1" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
+           </p>
+           
+           <p class="valor-lancheG">
+               <label for="LacnheG">Lanche grande</label>
+               <input type="text" id="LancheG" name="valor-fixo" value="R$ 30,00"readonly>
+           
+               <label for="Qtdlache2">Quantidade Lanche</label>
+               <input type="number" id="Qtdlache2" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
+           </p>
+           
+           <div class="lista-valores">
+               
+                 <div class="container-Container">
+                   <h4>Complementos</h4>
+                   </div>
+                   <div class="Valores-carne">
+                     <ul class="valores">
+                   <li>
+                       <p >Valor carne extra: <span id="valor-carne">R$:6,00 </span> </p>
+                   </li>
+                 </ul>
+                   <ul class="Contaneir-QTD">
+                   <p class="Containers-Qtd">
+                       <label id="NomeCarne" for="Qtdcarne" class = "nomeQtd">Quantidade Carne</label>
+                       <input type="number" id="Qtdcarne" value="0" name="Qtdcarne" min="0" max="999" onchange="atualizarValorTotal()">
+                   </p>
+                   <p class="Containers-Qtd">
+                     <label id="NomeBacon" class = "nomeQtd"for="Qtdcarne">Quantidade Bacon</label>
+                     <input type="number" id="QtdBacon" value="0" name="QtdBacon" min="0" max="999" onchange="atualizarValorTotal()">
+                 </p>
+                 <p class="Containers-Qtd">
+                   <label id="NomeQueijo" for="Qtdcarne" class = "nomeQtd">Quantidade Queijo</label>
+                   <input type="number" id="QtdQueijo" value="0" name="QtdQueijo" min="0" max="999" onchange="atualizarValorTotal()">
+               </p>
+                   </ul>
+                   </div>
+               <div>
+               </div>
+           </div>
+         </div>
+           <div>
+               <p class="tot">Total:<span name="total" id="total" aria-readonly="true">R$ 0.00</span></p>
+           </div>
+           </div>
+           <div class="modal-footer">
+             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+           <a><button type="button" class="btn btn-primary" click="adicionarAoCarrinho()" routerLink='/carro' routerLinkActive="router-link-active">Adicionar ao Carrinho</button></a>
+           </div>
+         </div>
+       </div>
+     </div>
+                     </div>
+                   </div>   
+                      <!--Segundo container Calabresa-->
+                      <div class="col">
+                        <div class="card" style="width: 18rem;">
+                          <img src="assets\Imagens\hamburguertra.avif" class="card-img-top" alt="...">
+                          <div class="card-body">
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          </div>
+                          <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Comprar
+        </button>
+        
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Realize seu Desejo</h5>
+                
+              </div>
+              <div class="modal-body">
+                <p class="valor-lancheP">
+                  <label for="LacheP">Lanche pequeno</label>
+                  <input type="text" id="LancheP"  name="valor-fixo" value="R$ 18,00" readonly>
+                  
+                  <label for="Qtdlache">Quantidade Lanche</label>
+                  <input type="number" id="Qtdlache" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
+              </p>
+              
+              <p class="valor-lancheM">
+                  <label for="LancheM">Lanche medio</label>
+                  <input type="text" id="LancheM" name="valor-fixo" value="R$ 26,00" readonly>
+                  
+                  <label for="Qtdlache1">Quantidade Lanche</label>
+                  <input type="number" id="Qtdlache1" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
+              </p>
+              
+              <p class="valor-lancheG">
+                  <label for="LacnheG">Lanche grande</label>
+                  <input type="text" id="LancheG" name="valor-fixo" value="R$ 30,00"readonly>
+              
+                  <label for="Qtdlache2">Quantidade Lanche</label>
+                  <input type="number" id="Qtdlache2" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
+              </p>
+              
+              <div class="lista-valores">
+                  <ul>
+                      <h4>Complementos</h4>
+                      <li>
+                          <p class="valores">Valor carne extra: <span id="valor-carne">R$:6,00 </span> </p>
+                      </li>
+                      <p>
+                          <label id="NomeCarne" for="Qtdcarne">Quantidade Carne</label>
+                          <input type="number" id="Qtdcarne" value="0" name="Qtdcarne" min="0" max="999" onchange="atualizarValorTotal()">
+                      </p>
+                  </ul>
+                  <div>
                   </div>
+              </div>
+              
+              <div>
+                  <p class="tot">Total:<span name="total" id="total" aria-readonly="true">R$ 0.00</span></p>
+              </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                <a><button type="button" class="btn btn-primary" click="adicionarAoCarrinho()" routerLink='/carro' routerLinkActive="router-link-active">Adicionar ao Carrinho</button></a>
+              </div>
+            </div>
+          </div>
+        </div>
+                        </div>
+                      </div>
                   <!--Terceiro container Calabresa-->
                   <div class="col">
                     <div class="card" style="width: 18rem;">
@@ -1548,6 +1685,80 @@ Comprar
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                       </div>
                       <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Comprar
+    </button>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Realize seu Desejo</h5>
+            
+          </div>
+          <div class="modal-body">
+            <p class="valor-lancheP">
+              <label for="LacheP">Lanche pequeno</label>
+              <input type="text" id="LancheP"  name="valor-fixo" value="R$ 18,00" readonly>
+              
+              <label for="Qtdlache">Quantidade Lanche</label>
+              <input type="number" id="Qtdlache" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
+          </p>
+          
+          <p class="valor-lancheM">
+              <label for="LancheM">Lanche medio</label>
+              <input type="text" id="LancheM" name="valor-fixo" value="R$ 26,00" readonly>
+              
+              <label for="Qtdlache1">Quantidade Lanche</label>
+              <input type="number" id="Qtdlache1" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
+          </p>
+          
+          <p class="valor-lancheG">
+              <label for="LacnheG">Lanche grande</label>
+              <input type="text" id="LancheG" name="valor-fixo" value="R$ 30,00"readonly>
+          
+              <label for="Qtdlache2">Quantidade Lanche</label>
+              <input type="number" id="Qtdlache2" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
+          </p>
+          
+          <div class="lista-valores">
+              <ul>
+                  <h4>Complementos</h4>
+                  <li>
+                      <p class="valores">Valor carne extra: <span id="valor-carne">R$:6,00 </span> </p>
+                  </li>
+                  <p>
+                      <label id="NomeCarne" for="Qtdcarne">Quantidade Carne</label>
+                      <input type="number" id="Qtdcarne" value="0" name="Qtdcarne" min="0" max="999" onchange="atualizarValorTotal()">
+                  </p>
+              </ul>
+              <div>
+              </div>
+          </div>
+          
+          <div>
+              <p class="tot">Total:<span name="total" id="total" aria-readonly="true">R$ 0.00</span></p>
+          </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+            <a><button type="button" class="btn btn-primary" click="adicionarAoCarrinho()" routerLink='/carro' routerLinkActive="router-link-active">Adicionar ao Carrinho</button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+                    </div>
+                  </div>
+
+                  <!--Quarto container Calabresa-->
+                  <div class="col">
+                <div class="card" style="width: 18rem;">
+                  <img src="assets\Imagens\hamburguertra.avif" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  </div>
+                  <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
   Comprar
 </button>
@@ -1606,86 +1817,13 @@ Comprar
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-primary">Adicionar ao Carrinho</button>
+        <a><button type="button" class="btn btn-primary" click="adicionarAoCarrinho()" routerLink='/carro' routerLinkActive="router-link-active">Adicionar ao Carrinho</button></a>
       </div>
     </div>
   </div>
 </div>
-                    </div>
-                  </div>
-                  <!--Quarto container Calabresa-->
-                  <div class="col">
-                    <div class="card" style="width: 18rem;">
-                      <img src="assets\Imagens\hamburguertra.avif" class="card-img-top" alt="...">
-                      <div class="card-body">
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      </div>
-                      <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Comprar
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Realize seu Desejo</h5>
-     
-      </div>
-      <div class="modal-body">
-        <p class="valor-lancheP">
-          <label for="LacheP">Lanche pequeno</label>
-          <input type="text" id="LancheP"  name="valor-fixo" value="R$ 18,00" readonly>
-          
-          <label for="Qtdlache">Quantidade Lanche</label>
-          <input type="number" id="Qtdlache" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
-      </p>
-      
-      <p class="valor-lancheM">
-          <label for="LancheM">Lanche medio</label>
-          <input type="text" id="LancheM" name="valor-fixo" value="R$ 26,00" readonly>
-          
-          <label for="Qtdlache1">Quantidade Lanche</label>
-          <input type="number" id="Qtdlache1" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
-      </p>
-      
-      <p class="valor-lancheG">
-          <label for="LacnheG">Lanche grande</label>
-          <input type="text" id="LancheG" name="valor-fixo" value="R$ 30,00"readonly>
-      
-          <label for="Qtdlache2">Quantidade Lanche</label>
-          <input type="number" id="Qtdlache2" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
-      </p>
-      
-      <div class="lista-valores">
-          <ul>
-              <h4>Complementos</h4>
-              <li>
-                  <p class="valores">Valor carne extra: <span id="valor-carne">R$:6,00 </span> </p>
-              </li>
-              <p>
-                  <label id="NomeCarne" for="Qtdcarne">Quantidade Carne</label>
-                  <input type="number" id="Qtdcarne" value="0" name="Qtdcarne" min="0" max="999" onchange="atualizarValorTotal()">
-              </p>
-          </ul>
-          <div>
-          </div>
-      </div>
-      
-      <div>
-          <p class="tot">Total:<span name="total" id="total" aria-readonly="true">R$ 0.00</span></p>
-      </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-primary">Adicionar ao Carrinho</button>
-      </div>
-    </div>
-  </div>
-</div>
-                    </div>
-                  </div>
+                </div>
+              </div>
                   <!--Quinto container Calabresa-->
                   <div class="col">
                     <div class="card" style="width: 18rem;">
@@ -1694,69 +1832,69 @@ Comprar
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                       </div>
                       <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-Comprar
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Realize seu Desejo</h5>
-        
-      </div>
-      <div class="modal-body">
-        <p class="valor-lancheP">
-          <label for="LacheP">Lanche pequeno</label>
-          <input type="text" id="LancheP"  name="valor-fixo" value="R$ 18,00" readonly>
-          
-          <label for="Qtdlache">Quantidade Lanche</label>
-          <input type="number" id="Qtdlache" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
-      </p>
-      
-      <p class="valor-lancheM">
-          <label for="LancheM">Lanche medio</label>
-          <input type="text" id="LancheM" name="valor-fixo" value="R$ 26,00" readonly>
-          
-          <label for="Qtdlache1">Quantidade Lanche</label>
-          <input type="number" id="Qtdlache1" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
-      </p>
-      
-      <p class="valor-lancheG">
-          <label for="LacnheG">Lanche grande</label>
-          <input type="text" id="LancheG" name="valor-fixo" value="R$ 30,00"readonly>
-      
-          <label for="Qtdlache2">Quantidade Lanche</label>
-          <input type="number" id="Qtdlache2" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
-      </p>
-      
-      <div class="lista-valores">
-          <ul>
-              <h4>Complementos</h4>
-              <li>
-                  <p class="valores">Valor carne extra: <span id="valor-carne">R$:6,00 </span> </p>
-              </li>
-              <p>
-                  <label id="NomeCarne" for="Qtdcarne">Quantidade Carne</label>
-                  <input type="number" id="Qtdcarne" value="0" name="Qtdcarne" min="0" max="999" onchange="atualizarValorTotal()">
-              </p>
-          </ul>
-          <div>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Comprar
+    </button>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Realize seu Desejo</h5>
+            
           </div>
-      </div>
-      
-      <div>
-          <p class="tot">Total:<span name="total" id="total" aria-readonly="true">R$ 0.00</span></p>
-      </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-primary">Adicionar ao Carrinho</button>
+          <div class="modal-body">
+            <p class="valor-lancheP">
+              <label for="LacheP">Lanche pequeno</label>
+              <input type="text" id="LancheP"  name="valor-fixo" value="R$ 18,00" readonly>
+              
+              <label for="Qtdlache">Quantidade Lanche</label>
+              <input type="number" id="Qtdlache" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
+          </p>
+          
+          <p class="valor-lancheM">
+              <label for="LancheM">Lanche medio</label>
+              <input type="text" id="LancheM" name="valor-fixo" value="R$ 26,00" readonly>
+              
+              <label for="Qtdlache1">Quantidade Lanche</label>
+              <input type="number" id="Qtdlache1" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
+          </p>
+          
+          <p class="valor-lancheG">
+              <label for="LacnheG">Lanche grande</label>
+              <input type="text" id="LancheG" name="valor-fixo" value="R$ 30,00"readonly>
+          
+              <label for="Qtdlache2">Quantidade Lanche</label>
+              <input type="number" id="Qtdlache2" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
+          </p>
+          
+          <div class="lista-valores">
+              <ul>
+                  <h4>Complementos</h4>
+                  <li>
+                      <p class="valores">Valor carne extra: <span id="valor-carne">R$:6,00 </span> </p>
+                  </li>
+                  <p>
+                      <label id="NomeCarne" for="Qtdcarne">Quantidade Carne</label>
+                      <input type="number" id="Qtdcarne" value="0" name="Qtdcarne" min="0" max="999" onchange="atualizarValorTotal()">
+                  </p>
+              </ul>
+              <div>
+              </div>
+          </div>
+          
+          <div>
+              <p class="tot">Total:<span name="total" id="total" aria-readonly="true">R$ 0.00</span></p>
+          </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+            <a><button type="button" class="btn btn-primary" click="adicionarAoCarrinho()" routerLink='/carro' routerLinkActive="router-link-active">Adicionar ao Carrinho</button></a>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
                     </div>
                   </div>
                   <!--Sexto container Calabresa-->
@@ -1767,81 +1905,77 @@ Comprar
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                       </div>
                       <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Comprar
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Realize seu Desejo</h5>
-        
-      </div>
-      <div class="modal-body">
-        <p class="valor-lancheP">
-          <label for="LacheP">Lanche pequeno</label>
-          <input type="text" id="LancheP"  name="valor-fixo" value="R$ 18,00" readonly>
-          
-          
-          <label for="Qtdlache">Quantidade Lanche</label>
-          <input type="number" id="Qtdlache" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
-      </p>
-      
-      <p class="valor-lancheM">
-          <label for="LancheM">Lanche medio</label>
-          <input type="text" id="LancheM" name="valor-fixo" value="R$ 26,00" readonly>
-         
-          
-          <label for="Qtdlache1">Quantidade Lanche</label>
-          <input type="number" id="Qtdlache1" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
-      </p>
-      
-      <p class="valor-lancheG">
-          <label for="LacnheG">Lanche grande</label>
-          <input type="text" id="LancheG" name="valor-fixo" value="R$ 30,00"readonly>
-          
-      
-          <label for="Qtdlache2">Quantidade Lanche</label>
-          <input type="number" id="Qtdlache2" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
-      </p>
-      
-      <div class="lista-valores">
-          <ul>
-              <h4>Complementos</h4>
-              <li>
-                  <p class="valores">Valor carne extra: <span id="valor-carne">R$:6,00 </span> </p>
-              </li>
-              <p>
-                  <label id="NomeCarne" for="Qtdcarne">Quantidade Carne</label>
-                  <input type="number" id="Qtdcarne" value="0" name="Qtdcarne" min="0" max="999" onchange="atualizarValorTotal()">
-              </p>
-          </ul>
-          <div>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Comprar
+    </button>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Realize seu Desejo</h5>
+            
           </div>
-      </div>
-      
-      <div>
-          <p class="tot">Total:<span name="total" id="total" aria-readonly="true">R$ 0.00</span></p>
-      </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-primary">Adicionar ao Carrinho</button>
+          <div class="modal-body">
+            <p class="valor-lancheP">
+              <label for="LacheP">Lanche pequeno</label>
+              <input type="text" id="LancheP"  name="valor-fixo" value="R$ 18,00" readonly>
+              
+              <label for="Qtdlache">Quantidade Lanche</label>
+              <input type="number" id="Qtdlache" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
+          </p>
+          
+          <p class="valor-lancheM">
+              <label for="LancheM">Lanche medio</label>
+              <input type="text" id="LancheM" name="valor-fixo" value="R$ 26,00" readonly>
+              
+              <label for="Qtdlache1">Quantidade Lanche</label>
+              <input type="number" id="Qtdlache1" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
+          </p>
+          
+          <p class="valor-lancheG">
+              <label for="LacnheG">Lanche grande</label>
+              <input type="text" id="LancheG" name="valor-fixo" value="R$ 30,00"readonly>
+          
+              <label for="Qtdlache2">Quantidade Lanche</label>
+              <input type="number" id="Qtdlache2" value="0" name="Qtdlache" min="0" max="999" onchange="atualizarValorTotal()">
+          </p>
+          
+          <div class="lista-valores">
+              <ul>
+                  <h4>Complementos</h4>
+                  <li>
+                      <p class="valores">Valor carne extra: <span id="valor-carne">R$:6,00 </span> </p>
+                  </li>
+                  <p>
+                      <label id="NomeCarne" for="Qtdcarne">Quantidade Carne</label>
+                      <input type="number" id="Qtdcarne" value="0" name="Qtdcarne" min="0" max="999" onchange="atualizarValorTotal()">
+                  </p>
+              </ul>
+              <div>
+              </div>
+          </div>
+          
+          <div>
+              <p class="tot">Total:<span name="total" id="total" aria-readonly="true">R$ 0.00</span></p>
+          </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+            <a><button type="button" class="btn btn-primary" click="adicionarAoCarrinho()" routerLink='/carro' routerLinkActive="router-link-active">Adicionar ao Carrinho</button></a>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
                     </div>
+                  </div>                    
                   </div>
                 </div>
-                
-              </div>
     
             </section>
 
-            <app-botaotopo onclick="topFunction()"></app-botaotopo>
+            <app-botaotopo click="topFunction()"></app-botaotopo>
           
   </section>
   </section>

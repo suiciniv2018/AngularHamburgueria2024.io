@@ -38,9 +38,6 @@
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
               "src/app/botaotopo/topo.js",
-              "src/app/mercado/Modal.js",
-              "src/app/pageinitial/slides.js",
-              "src/app/pageinitial/saltoPage.js",
               "src/app/mercado/Somaecomerce.js"
             ],
             "server": "src/main.server.ts",

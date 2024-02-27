@@ -2,13 +2,18 @@
 <html>
 
   <body>
-    <button  id="buttonMenu"class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">Conheça Nosso Site</button>
+    <button  id="buttonMain"class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">Conheça Nosso Site</button>
+    <button  id="buttonMain"class="btn btn-primary" type="button"  (click)="scrollToSection('#Historia')">Conheça nossa historia</button>
+    <button  id="buttonMain"class="btn btn-primary" type="button"  (click)="scrollToSection('#NossaCarne')">Origem do Produto</button>
     
     <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
       
       <div class="offcanvas-header">
 
-        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        <button type="button" class="btn-close " data-bs-dismiss="offcanvas" aria-label="Close">
+          <p class="FecharCanvas">Fechar</p>
+        </button>
+        
       </div>
       <div class="offcanvas-body">
         <nav class="navbar navbar-expand-lg">
@@ -70,14 +75,114 @@
               </ul>
               <form class="d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
+                <button class="btn btn-outline-success" autocomplete="on" type="submit">Search</button>
               </form>
             </div>
           </div>
         </nav>
  
           <div class="IMG-Canvas">
-          <img src="assets\Imagens\imagemt.jpg" class="img-responsive">
+            <section class="footer-section">
+
+              <!-- Footer -->
+              <footer 
+              class="text-lg-start text-white"
+                      style="background-color: #1c2331"
+                      >
+                <!-- Section: Social media -->
+                <section
+                         class="d-flex justify-content-between p-4"
+                         style="background-color: #6351ce"
+                         >
+                  <!-- Left -->
+                  <div class="me-5">
+                    <span>Contato Social Midia :</span>
+                  </div>
+                  <!-- Left -->
+              
+                  <!-- Right -->
+                  <div>
+                    <a href="" class="text-white me-4">
+                      <i class="bi bi-facebook"></i>
+                    </a>
+                    <a href="" class="text-white me-4">
+                      <i class="bi bi-twitter"></i>
+                    </a>
+                    <a href="" class="text-white me-4">
+                      <i class="bi bi-whatsapp"></i>
+                    </a>
+                    <a href="" class="text-white me-4">
+                      <i class="bi bi-instagram"></i>
+                    </a>
+                  </div>
+                  <!-- Right -->
+                </section>
+                <!-- Section: Social media -->
+            
+                <!-- Section: Links  -->
+                <section class="">
+                  <div class="container text-center text-md-start mt-5">
+                    <!-- Grid row -->
+                    <div class="row mt-3">
+                      <!-- Grid column -->
+                      <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                        <!-- Content -->
+                        <h6 class="text-uppercase fw-bold">Hamburgueria Blum</h6>
+                        <hr
+                            class="mb-4 mt-0 d-inline-block mx-auto"
+                            style="width: 60px; background-color: #7c4dff; height: 2px"
+                            />
+                        <p>
+                          Nome alemão que  vem da cidade tal...blblalllblalal
+                        </p>
+                      </div>
+                      <!-- Grid column -->
+            
+                
+                      <!-- Grid column -->
+                      <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold">Mapa do site</h6>
+                        <hr
+                            class="mb-4 mt-0 d-inline-block mx-auto"
+                            style="width: 60px; background-color: #7c4dff; height: 2px"
+                            />
+                        <p>
+                          <a href="#!" class="text-white">Comprar</a>
+                        </p>
+                        <p>
+                          <a routerLink='/Galeria' routerLinkActive="router-link-active" class="text-white">Galeria</a>
+                        </p>
+                        <p>
+                          <a href="#!" class="text-white">Promoção</a>
+                        </p>
+                      </div>
+                      <!-- Grid column -->
+            
+                      <!-- Grid column -->
+                      <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold">Contatos</h6>
+                        <hr
+                            class="mb-4 mt-0 d-inline-block mx-auto"
+                            style="width: 60px; background-color: #7c4dff; height: 2px"
+                            />
+                        <p><i class="bi bi-house-door-fill"></i> Rua  tal numero 380</p>
+                        <p><i class="bi bi-envelope"></i> email.terra.com.br</p>
+                        <p><i class="bi bi-telephone-fill"></i> 1094567840404</p>
+                       
+                      </div>
+                      <!-- Grid column -->
+                    </div>
+                    <!-- Grid row -->
+                  </div>
+                </section>
+                <!-- Section: Links  -->
+              </footer>
+              <!-- Footer -->
+          </section>
+            <!-- End of .container -->
+          
         </div>
       </div>
     </div>
@@ -86,9 +191,9 @@
 <div class="Slide">
   <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
     <div class="carousel-indicators" >
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      <button id="IndicadoresSlide" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button id="IndicadoresSlide"type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button id="IndicadoresSlide"type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
     </div>
     <div>
     <div class="carousel-inner">
@@ -136,106 +241,6 @@
 </div>
 
 
-<section class="footer-section">
-
-    <!-- Footer -->
-    <footer 
-    class="text-lg-start text-white"
-            style="background-color: #1c2331"
-            >
-      <!-- Section: Social media -->
-      <section
-               class="d-flex justify-content-between p-4"
-               style="background-color: #6351ce"
-               >
-        <!-- Left -->
-        <div class="me-5">
-          <span>Contato Social Midia :</span>
-        </div>
-        <!-- Left -->
-    
-        <!-- Right -->
-        <div>
-          <a href="" class="text-white me-4">
-            <i class="bi bi-facebook"></i>
-          </a>
-          <a href="" class="text-white me-4">
-            <i class="bi bi-twitter"></i>
-          </a>
-          <a href="" class="text-white me-4">
-            <i class="bi bi-whatsapp"></i>
-          </a>
-          <a href="" class="text-white me-4">
-            <i class="bi bi-instagram"></i>
-          </a>
-        </div>
-        <!-- Right -->
-      </section>
-      <!-- Section: Social media -->
-  
-      <!-- Section: Links  -->
-      <section class="">
-        <div class="container text-center text-md-start mt-5">
-          <!-- Grid row -->
-          <div class="row mt-3">
-            <!-- Grid column -->
-            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-              <!-- Content -->
-              <h6 class="text-uppercase fw-bold">Hamburgueria Blum</h6>
-              <hr
-                  class="mb-4 mt-0 d-inline-block mx-auto"
-                  style="width: 60px; background-color: #7c4dff; height: 2px"
-                  />
-              <p>
-                Nome alemão que  vem da cidade tal...blblalllblalal
-              </p>
-            </div>
-            <!-- Grid column -->
-  
-      
-            <!-- Grid column -->
-            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-              <!-- Links -->
-              <h6 class="text-uppercase fw-bold">Mapa do site</h6>
-              <hr
-                  class="mb-4 mt-0 d-inline-block mx-auto"
-                  style="width: 60px; background-color: #7c4dff; height: 2px"
-                  />
-              <p>
-                <a href="#!" class="text-white">Comprar</a>
-              </p>
-              <p>
-                <a routerLink='/Galeria' routerLinkActive="router-link-active" class="text-white">Galeria</a>
-              </p>
-              <p>
-                <a href="#!" class="text-white">Promoção</a>
-              </p>
-            </div>
-            <!-- Grid column -->
-  
-            <!-- Grid column -->
-            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-              <!-- Links -->
-              <h6 class="text-uppercase fw-bold">Contatos</h6>
-              <hr
-                  class="mb-4 mt-0 d-inline-block mx-auto"
-                  style="width: 60px; background-color: #7c4dff; height: 2px"
-                  />
-              <p><i class="bi bi-house-door-fill"></i> Rua  tal numero 380</p>
-              <p><i class="bi bi-envelope"></i> email.terra.com.br</p>
-              <p><i class="bi bi-telephone-fill"></i> 1094567840404</p>
-             
-            </div>
-            <!-- Grid column -->
-          </div>
-          <!-- Grid row -->
-        </div>
-      </section>
-      <!-- Section: Links  -->
-    </footer>
-    <!-- Footer -->
-</section>
-  <!-- End of .container -->
 
 
 
