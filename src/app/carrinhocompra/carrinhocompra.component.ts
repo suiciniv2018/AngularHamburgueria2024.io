@@ -18,9 +18,6 @@ import { NgFor } from '@angular/common';
   <ul>
     <li *ngFor="let item of items">
       Lanche: {{ item.lanche }} - Quantidade: {{ item.quantidade }}
-    </li>
-  </ul>
-  <p>Total de Itens no Carrinho: {{ totalItens }}</p>
 </div>
 `
 })
