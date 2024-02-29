@@ -3,25 +3,27 @@ import {  ActivatedRoute, RouterLink} from '@angular/router';
 import { BotaotopoComponent } from '../botaotopo/botaotopo.component';
 import { CarrinhocompraComponent } from '../carrinhocompra/carrinhocompra.component';
 import { PassarImagemoutraPaginaService } from '../ServiçosPagina@injetacble/passar-imagemoutra-pagina.service';
+import{CarrinhoCompraService} from '../ServiçosPagina@injetacble/carrinho-compra.service'
 
 @Component({
   selector: 'app-mercado',
   standalone: true,
-  imports: [BotaotopoComponent,RouterLink,CarrinhocompraComponent],
+  imports: [BotaotopoComponent,RouterLink,CarrinhocompraComponent,],
   templateUrl: './mercado.component.html',
-  styleUrl: './mercado.component.css',
-
+  styleUrl: './mercado.component.css'
 })
+
 export class MercadoComponent implements OnInit  {
 [x: string]: any;
 
- 
-
-  constructor(private route: ActivatedRoute,public PassarImagemoutraPaginaService: PassarImagemoutraPaginaService) { }
-
-
+lanche:string|any;
+  quantidade:number|any;
 
  
+
+  constructor(private route: ActivatedRoute,public PassarImagemoutraPaginaService: PassarImagemoutraPaginaService,
+    public CarrinhoCompraService:CarrinhoCompraService) { }
+
 
   ngOnInit(): void {
 
@@ -40,7 +42,14 @@ export class MercadoComponent implements OnInit  {
   this.PassarImagemoutraPaginaService['caminhoImagemModal']; // Caminho da imagem inicial
     this.PassarImagemoutraPaginaService['caminhoImagem'];  // Caminho da imagem no modal
   }
-  
+
+  adicionarAocarrinho(){
+
+this.CarrinhoCompraService.adicionarAocarrinho({lanche:this.lanche, quantidade:this.quantidade });
+this.lanche = 'S';
+this.quantidade = 0;
+
+  }
   
 }
 

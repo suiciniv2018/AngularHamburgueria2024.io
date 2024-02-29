@@ -17,7 +17,6 @@ describe('CarrinhocompraComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
     expect(component).toBeTruthy();
   });
 });

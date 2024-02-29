@@ -5,6 +5,7 @@ import { NavigationEnd, Router } from '@angular/router';
   providedIn: 'root'
 })
 export class SaltoPageService {
+  
   constructor(private router: Router) {
     this.router.events.subscribe((event: any) => {
       if (event instanceof NavigationEnd) {
