@@ -16,8 +16,8 @@ import{CarrinhoCompraService} from '../ServiçosPagina@injetacble/carrinho-compr
 export class MercadoComponent implements OnInit  {
 [x: string]: any;
 
-lanche:string|any;
-  quantidade:number|any;
+lanche: string = ''; // Defina um valor inicial para lanche
+  quantidade: number = 0; // Defina um valor inicial para quantidade
 
  
 
@@ -44,13 +44,7 @@ lanche:string|any;
   }
 
   adicionarAocarrinho(){
-
-this.CarrinhoCompraService.adicionarAocarrinho({lanche:this.lanche, quantidade:this.quantidade });
-this.lanche = 'S';
-this.quantidade = 0;
-
-  }
-  
-}
-
-
+(nome: string, preco: number, quantidade: number): void =>
+      this.CarrinhoCompraService.adicionarAocarrinho({ nome, preco, quantidade });
+      this.CarrinhoCompraService['navigate'](['/carro']);
+}}

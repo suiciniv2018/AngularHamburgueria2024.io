@@ -10,31 +10,22 @@ import { NgFor } from '@angular/common';
   standalone: true,
   imports: [RouterLink,MercadoComponent,NgFor],
   templateUrl: './carrinhocompra.component.html',
-  styleUrl: './carrinhocompra.component.css',
- template:`
-     
-  <div>
-  <h2>Suas Compras</h2>
-  <ul>
-    <li *ngFor="let item of items">
-      Lanche: {{ item.lanche }} - Quantidade: {{ item.quantidade }}
-</div>
-`
+  styleUrl: './carrinhocompra.component.css'
 })
 export class CarrinhocompraComponent {
 
-  items: any[];
-  totalItens: number = 0;
+  items: { nome: string, preco: number, quantidade: number }[] = [];
+  total!: number;
 
-  constructor(private carrinhoService: CarrinhoCompraService) {
-    this.items = this.carrinhoService.getItens();
-    this.calcularTotalItens();
-  }
+  constructor(private CarrinhoCompraService: CarrinhoCompraService) { }
 
-  calcularTotalItens() {
-    this.totalItens = this.items.reduce((total, item) => total + item.quantidade, 0);
+  ngOnInit(): void {
+    this.items = this.CarrinhoCompraService.getItems();
+    this.total = this.CarrinhoCompraService.getTotal();
   }
 }
+
+
 
 
 
