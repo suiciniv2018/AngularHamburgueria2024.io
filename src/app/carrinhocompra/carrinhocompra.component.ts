@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { MercadoComponent } from '../mercado/mercado.component';
 
 
@@ -10,34 +10,33 @@ import { MercadoComponent } from '../mercado/mercado.component';
   templateUrl: './carrinhocompra.component.html',
   styleUrl: './carrinhocompra.component.css',
 })
-export class CarrinhocompraComponent {
+export class CarrinhocompraComponent  implements OnInit  {
 
   lancheP!: string;
   lancheM!: string;
   lancheG!: string;
-  Qtdlache!:number;
-  Qtdlache1!:number;
-  Qtdlache2!:number;
+  Qtdlache!:string;
+  Qtdlache1!:string;
+  Qtdlache2!:string;
   valorCarneExtra!: string;
   total!: string;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor() { }
 
   ngOnInit(): void {
-    // Recuperar os parâmetros da rota
-    this.route.queryParams.subscribe(params => {
-      this.lancheP = params['lancheP'];
-      this.lancheM = params['lancheM'];
-      this.lancheG = params['lancheG'];
-      this.Qtdlache = params['Qtdlache'];
-      this.Qtdlache1 = params['Qtdlache1'];
-      this.Qtdlache2 = params['Qtdlache2'];
-      this.valorCarneExtra = params['valorCarneExtra'];
-      this.total = params['total'];
-    });
+    if (typeof localStorage !== 'undefined') {
+      this.lancheP = localStorage.getItem('lancheP') || '';
+      this.lancheM = localStorage.getItem('lancheM') || '';
+      this.lancheG = localStorage.getItem('lancheG') || '';
+      this.Qtdlache = localStorage.getItem('Qtdlache') || '';
+      this.Qtdlache1 = localStorage.getItem('Qtdlache1') || '';
+      this.Qtdlache2 = localStorage.getItem('Qtdlache2') || '';
+      this.valorCarneExtra = localStorage.getItem('valorCarneExtra') || '';
+      this.total = localStorage.getItem('total') || '';
+    } else {
+      console.error('O objeto localStorage não está disponível neste ambiente.');
+    }
   }
-
-  //outro typecript
 }
 
 

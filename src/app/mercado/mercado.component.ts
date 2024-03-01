@@ -3,7 +3,7 @@ import {  ActivatedRoute, RouterLink} from '@angular/router';
 import { BotaotopoComponent } from '../botaotopo/botaotopo.component';
 import { CarrinhocompraComponent } from '../carrinhocompra/carrinhocompra.component';
 import { PassarImagemoutraPaginaService } from '../ServiçosPagina@injetacble/passar-imagemoutra-pagina.service';
-import{CarrinhoCompraService} from '../ServiçosPagina@injetacble/carrinho-compra.service'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-mercado',
@@ -16,27 +16,18 @@ import{CarrinhoCompraService} from '../ServiçosPagina@injetacble/carrinho-compr
 export class MercadoComponent implements OnInit  {
   [x: string]: any;
 
-    // Defina as variáveis ​​que deseja passar para a outra página
-    lancheP = 'R$ 18,00';
-    lancheM = 'R$ 26,00';
-    lancheG = 'R$ 30,00';
-    Qtdlache = 'R$ 0';
-    Qtdlache1= 'R$ 0';
-    Qtdlache2 = 'R$ 0';
-    valorCarneExtra = 'R$ 6,00';
-    total = 'R$ 0,00';
   
  
 
-  constructor(private route: ActivatedRoute,public PassarImagemoutraPaginaService: PassarImagemoutraPaginaService,
-    public CarrinhoCompraService:CarrinhoCompraService) { }
+  constructor(private Router: ActivatedRoute,public PassarImagemoutraPaginaService: PassarImagemoutraPaginaService,
+    private router: Router) { }
 
 
   ngOnInit(): void {
 
     // Obter o ID do elemento da URL
    // Obter o ID do elemento da URL
-   this.route.fragment.subscribe(fragment => {
+   this.Router.fragment.subscribe(fragment => {
     if (fragment) {
       const element = document.querySelector(`#${fragment}`);
       if (element) {
@@ -51,19 +42,24 @@ export class MercadoComponent implements OnInit  {
   }
 
     adicionarAoCarrinho(): void {
-      // Navegar para a página de destino com os parâmetros
-      // Navegar para a página de destino com os parâmetros
-      this['Router'].navigate(['/carro'], {
-        queryParams: {
-          lancheP: this.lancheP,
-          lancheM: this.lancheM,
-          lancheG: this.lancheG,
-          Qtdlache: this.Qtdlache,
-          Qtdlache1: this.Qtdlache1,
-          Qtdlache2: this.Qtdlache,
-          valorCarneExtra: this.valorCarneExtra,
-          total: this.total
-        }
-      });
-    }
-  }
+      const lancheP = 'R$ 18,00';
+      const lancheM = 'R$ 26,00';
+      const lancheG = 'R$ 30,00';
+      const Qtdlache = 'R$ 0';
+      const Qtdlache1 = 'R$ 0';
+      const Qtdlache2 = 'R$ 0';
+      const valorCarneExtra = 'R$ 6,00';
+      const total = 'R$ 0,00';
+
+   
+        localStorage.setItem('lancheP', 'R$ 18,00');
+        localStorage.setItem('lancheM', 'R$ 26,00');
+        localStorage.setItem('lancheG', 'R$ 30,00');
+        localStorage.setItem('Qtdlache', 'R$ 0');
+        localStorage.setItem('Qtdlache1', 'R$ 0');
+        localStorage.setItem('Qtdlache2', 'R$ 0');
+        localStorage.setItem('valorCarneExtra', 'R$ 6,00');
+        localStorage.setItem('total', 'R$ 0,00');
+
+        this['router'].navigate(['/carro']);
+    }}
