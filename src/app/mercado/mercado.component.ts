@@ -20,9 +20,9 @@ export class MercadoComponent implements OnInit  {
     lancheP = 'R$ 18,00';
     lancheM = 'R$ 26,00';
     lancheG = 'R$ 30,00';
-    Qtdlache = 0;
-    Qtdlache1= 0;
-    Qtdlache2 =0;
+    Qtdlache = 'R$ 0';
+    Qtdlache1= 'R$ 0';
+    Qtdlache2 = 'R$ 0';
     valorCarneExtra = 'R$ 6,00';
     total = 'R$ 0,00';
   
