@@ -5,6 +5,9 @@ import { CarrinhocompraComponent } from '../carrinhocompra/carrinhocompra.compon
 import { PassarImagemoutraPaginaService } from '../ServiçosPagina@injetacble/passar-imagemoutra-pagina.service';
 import{CarrinhoCompraService} from '../ServiçosPagina@injetacble/carrinho-compra.service'
 
+
+
+
 @Component({
   selector: 'app-mercado',
   standalone: true,
@@ -12,6 +15,9 @@ import{CarrinhoCompraService} from '../ServiçosPagina@injetacble/carrinho-compr
   templateUrl: './mercado.component.html',
   styleUrl: './mercado.component.css'
 })
+
+
+
 
 export class MercadoComponent implements OnInit  {
   [x: string]: any;
