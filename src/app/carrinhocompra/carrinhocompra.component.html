@@ -2,12 +2,24 @@
     
 <body>
 
-<div *ngFor="let item of items">
-    <h2>{{ item.nome }}</h2>
-    <p>Preço: R${{ item.preco }}</p>
-    <p>Quantidade: {{ item.quantidade }}</p>
-  </div>
-  <div>Total: R${{ total }}</div>
-
+  <div>
+    <ul>
+  <li><p>Lanche Pequeno: {{ lancheP }}</p></li>   
+  <tr>
+  <li><p>Quantidade lache pequeno: {{Qtdlache}}</p></li>
+  <tr>
+  <li><p>Lanche Médio: {{ lancheM }} </p> </li>
+  <tr>
+  <li><p> Quantida lache medio: {{Qtdlache1}}</p></li>   
+  <tr>
+  <li><p>Lanche Grande: {{ lancheG }}</p>    </li>
+  <tr>
+  <li><p> Quantidade lanche grande:{{Qtdlache2}}</p></li>
+  <tr>
+  <li><p>Valor Carne Extra: {{ valorCarneExtra }}</p></li>
+  <tr>
+  <li><p>Total: {{ total }}</p></li>
+</ul>
+</div>
 </body>
 </html>

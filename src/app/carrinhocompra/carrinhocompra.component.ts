@@ -1,29 +1,45 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { MercadoComponent } from '../mercado/mercado.component';
-import{CarrinhoCompraService} from '../ServiçosPagina@injetacble/carrinho-compra.service'
-import { NgFor } from '@angular/common';
 
 
 @Component({
-  selector: 'carrinhocompra',
+  selector: 'app-carrinhocompra',
   standalone: true,
-  imports: [RouterLink,MercadoComponent,NgFor],
+  imports: [RouterLink,MercadoComponent],
   templateUrl: './carrinhocompra.component.html',
-  styleUrl: './carrinhocompra.component.css'
+  styleUrl: './carrinhocompra.component.css',
 })
 export class CarrinhocompraComponent {
 
-  items: { nome: string, preco: number, quantidade: number }[] = [];
-  total!: number;
+  lancheP!: string;
+  lancheM!: string;
+  lancheG!: string;
+  Qtdlache!:number;
+  Qtdlache1!:number;
+  Qtdlache2!:number;
+  valorCarneExtra!: string;
+  total!: string;
 
-  constructor(private CarrinhoCompraService: CarrinhoCompraService) { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.items = this.CarrinhoCompraService.getItems();
-    this.total = this.CarrinhoCompraService.getTotal();
+    // Recuperar os parâmetros da rota
+    this.route.queryParams.subscribe(params => {
+      this.lancheP = params['lancheP'];
+      this.lancheM = params['lancheM'];
+      this.lancheG = params['lancheG'];
+      this.Qtdlache = params['Qtdlache'];
+      this.Qtdlache1 = params['Qtdlache1'];
+      this.Qtdlache2 = params['Qtdlache2'];
+      this.valorCarneExtra = params['valorCarneExtra'];
+      this.total = params['total'];
+    });
   }
+
+  //outro typecript
 }
+
 
 
 

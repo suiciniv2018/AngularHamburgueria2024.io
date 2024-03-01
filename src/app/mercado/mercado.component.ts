@@ -14,11 +14,18 @@ import{CarrinhoCompraService} from '../ServiçosPagina@injetacble/carrinho-compr
 })
 
 export class MercadoComponent implements OnInit  {
-[x: string]: any;
+  [x: string]: any;
 
-lanche: string = ''; // Defina um valor inicial para lanche
-  quantidade: number = 0; // Defina um valor inicial para quantidade
-
+    // Defina as variáveis ​​que deseja passar para a outra página
+    lancheP = 'R$ 18,00';
+    lancheM = 'R$ 26,00';
+    lancheG = 'R$ 30,00';
+    Qtdlache = 0;
+    Qtdlache1= 0;
+    Qtdlache2 =0;
+    valorCarneExtra = 'R$ 6,00';
+    total = 'R$ 0,00';
+  
  
 
   constructor(private route: ActivatedRoute,public PassarImagemoutraPaginaService: PassarImagemoutraPaginaService,
@@ -43,8 +50,20 @@ lanche: string = ''; // Defina um valor inicial para lanche
     this.PassarImagemoutraPaginaService['caminhoImagem'];  // Caminho da imagem no modal
   }
 
-  adicionarAocarrinho(){
-(nome: string, preco: number, quantidade: number): void =>
-      this.CarrinhoCompraService.adicionarAocarrinho({ nome, preco, quantidade });
-      this.CarrinhoCompraService['navigate'](['/carro']);
-}}
+    adicionarAoCarrinho(): void {
+      // Navegar para a página de destino com os parâmetros
+      // Navegar para a página de destino com os parâmetros
+      this['Router'].navigate(['/carro'], {
+        queryParams: {
+          lancheP: this.lancheP,
+          lancheM: this.lancheM,
+          lancheG: this.lancheG,
+          Qtdlache: this.Qtdlache,
+          Qtdlache1: this.Qtdlache1,
+          Qtdlache2: this.Qtdlache,
+          valorCarneExtra: this.valorCarneExtra,
+          total: this.total
+        }
+      });
+    }
+  }

@@ -9,19 +9,23 @@ import { Injectable } from '@angular/core';
 export class CarrinhoCompraService {
   [x: string]: any;
 
-  items: { nome: string, preco: number, quantidade: number }[] = [];
+  lancheP = 'R$ 18,00';
+  lancheM = 'R$ 26,00';
+  lancheG = 'R$ 30,00';
+  valorCarneExtra = 'R$ 6,00';
+  total = 'R$ 0,00';
 
-  constructor() { }
-
-  adicionarAocarrinho(item: { nome: string, preco: number, quantidade: number }) {
-    this.items.push(item);
-  }
-
-  getItems() {
-    return this.items;
-  }
-
-  getTotal(): number {
-    return this.items.reduce((acc, item) => acc + (item.preco * item.quantidade), 0);
+  adicionarAoCarrinho(): void {
+    // Navegar para a página de destino com os parâmetros
+    // Navegar para a página de destino com os parâmetros
+    this['router'].navigate(['/carro'], {
+      queryParams: {
+        lancheP: this.lancheP,
+        lancheM: this.lancheM,
+        lancheG: this.lancheG,
+        valorCarneExtra: this.valorCarneExtra,
+        total: this.total
+      }
+    });
   }
 }
