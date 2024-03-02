@@ -7,10 +7,6 @@ import { PromocaoComponent } from './promocao/promocao.component';
 import { CarrinhocompraComponent } from './carrinhocompra/carrinhocompra.component';
 
 
-
-
-
-
 export const routes: Routes = [
     
      {path:'home',title:'',component:PageinitialComponent},

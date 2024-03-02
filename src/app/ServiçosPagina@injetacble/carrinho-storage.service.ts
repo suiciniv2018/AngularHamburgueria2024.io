@@ -1,43 +1,69 @@
-import { Injectable } from '@angular/core';
-
 import { Router } from '@angular/router';
+import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CarrinhoStorageService {
-  [x: string]: any;
 
-  constructor(private router: Router) { }
+  constructor(private Router:Router) { }
 
-  onAdicionarCarrinhoClick() {
-    const lancheP = (document.getElementById("LancheP") as HTMLInputElement).value;
-    const qtdlacheP = (document.getElementById("Qtdlache") as HTMLInputElement).value;
-    const lancheM = (document.getElementById("LancheM") as HTMLInputElement).value;
-    const qtdlacheM = (document.getElementById("Qtdlache1") as HTMLInputElement).value;
-    const lancheG = (document.getElementById("LancheG") as HTMLInputElement).value;
-    const qtdlacheG = (document.getElementById("Qtdlache2") as HTMLInputElement).value;
-    const qtdCarne = (document.getElementById("Qtdcarne") as HTMLInputElement).value;
-    const qtdBacon = (document.getElementById("QtdBacon") as HTMLInputElement).value;
-    const qtdQueijo = (document.getElementById("QtdQueijo") as HTMLInputElement).value;
-    const total = (document.getElementById("total") as HTMLSpanElement).innerText;
+  adicionarAoCarrinho(): void {
+    const addclick = document.querySelector("#adicionarCarrinho");
+    addclick.addEventListener("click", (event) => {
+      event.preventDefault();
+//pegando valor de lanche
+      const LancheP = document.getElementById("LancheP")?.textContent;
+      const LancheM = (document.getElementById("LancheM") as HTMLInputElement).value;
+      const LancheG = (document.getElementById("LancheG") as HTMLInputElement).value;
+      // pegando a quantidade de lanche
 
-    // Armazenar os valores capturados
-    const itemsSelecionados = {
-      lancheP: lancheP,
-      qtdlacheP: qtdlacheP,
-      lancheM: lancheM,
-      qtdlacheM: qtdlacheM,
-      lancheG: lancheG,
-      qtdlacheG: qtdlacheG,
-      qtdCarne: qtdCarne,
-      qtdBacon: qtdBacon,
-      qtdQueijo: qtdQueijo,
-      total: total
-    };
+      const Qtdlache = (document.getElementById("Qtdlache") as HTMLInputElement).value;
+      const Qtdlache1 = (document.getElementById("Qtdlache1") as HTMLInputElement).value;
+      const Qtdlache2 = (document.getElementById("Qtdlache2") as HTMLInputElement).value;
+     
 
-    // Navegar para a página do carrinho e passar os valores como parâmetro na URL
-    // Navegar para a página do carrinho e passar os valores como parâmetro na URL
-    this['router'].navigate(['/carrinho'], { state: { itemsSelecionados: itemsSelecionados } });
+//pegando complementos
+      const bacon = (document.getElementById("QtdBacon") as HTMLInputElement).value;
+      const carne = (document.getElementById("Qtdcarne") as HTMLInputElement).value;
+      const queijo = (document.getElementById("Qtdqueijo") as HTMLInputElement).value;
+
+     
+      const Lanches = {
+        LancheP: LancheP,
+        LancheM: LancheM,
+        LancheG: LancheG,
+    
+      };
+
+      const QtdLanches = {
+        Qtdlache: Qtdlache,
+        Qtdlache1: Qtdlache1,
+        Qtdlache2: Qtdlache2,
+    
+      };
+
+
+      const complementos = {
+        bacon: bacon,
+        queijo:queijo,
+        carne: carne,
+      };
+
+      let arrayLanches = JSON.parse(sessionStorage.getItem("Lanches")) || [];
+      arrayLanches.push(Lanches);
+      sessionStorage.setItem("Lanches", JSON.stringify(arrayLanches));
+
+      let arrayQtdLanches = JSON.parse(sessionStorage.getItem("QtdLanches")) || [];
+      arrayQtdLanches.push(QtdLanches);
+      sessionStorage.setItem("QtdLanches", JSON.stringify(arrayQtdLanches));
+      
+
+      let arrayComplementos = JSON.parse(sessionStorage.getItem("Complementos")) || [];
+      arrayComplementos.push(complementos);
+      sessionStorage.setItem("Complementos", JSON.stringify(arrayComplementos));
+
+      alert("Salvo com Sucesso");
+    });
   }
 }
