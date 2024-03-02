@@ -1,86 +1,43 @@
 import { Injectable } from '@angular/core';
 
+import { Router } from '@angular/router';
+
 @Injectable({
   providedIn: 'root'
 })
 export class CarrinhoStorageService {
+  [x: string]: any;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
-  addClickHandler() {
-    const clickNumber = document.querySelector<HTMLInputElement>('input[type="number"]');
-    const addClick = document.querySelector<HTMLButtonElement>("#adicionarCarrinho");
+  onAdicionarCarrinhoClick() {
+    const lancheP = (document.getElementById("LancheP") as HTMLInputElement).value;
+    const qtdlacheP = (document.getElementById("Qtdlache") as HTMLInputElement).value;
+    const lancheM = (document.getElementById("LancheM") as HTMLInputElement).value;
+    const qtdlacheM = (document.getElementById("Qtdlache1") as HTMLInputElement).value;
+    const lancheG = (document.getElementById("LancheG") as HTMLInputElement).value;
+    const qtdlacheG = (document.getElementById("Qtdlache2") as HTMLInputElement).value;
+    const qtdCarne = (document.getElementById("Qtdcarne") as HTMLInputElement).value;
+    const qtdBacon = (document.getElementById("QtdBacon") as HTMLInputElement).value;
+    const qtdQueijo = (document.getElementById("QtdQueijo") as HTMLInputElement).value;
+    const total = (document.getElementById("total") as HTMLSpanElement).innerText;
 
-    addClick?.addEventListener("click", (event: MouseEvent) => { // adiciona um evento de clicar algo na página
-      event.preventDefault();
+    // Armazenar os valores capturados
+    const itemsSelecionados = {
+      lancheP: lancheP,
+      qtdlacheP: qtdlacheP,
+      lancheM: lancheM,
+      qtdlacheM: qtdlacheM,
+      lancheG: lancheG,
+      qtdlacheG: qtdlacheG,
+      qtdCarne: qtdCarne,
+      qtdBacon: qtdBacon,
+      qtdQueijo: qtdQueijo,
+      total: total
+    };
 
-      // Lanches
-      const lancheP = (document.getElementById("LancheP") as HTMLInputElement).value;
-      const lancheM = (document.getElementById("LancheM") as HTMLInputElement).value;
-      const lancheG = (document.getElementById("LancheG") as HTMLInputElement).value;
-
-      // Quantidade lanches
-      const Qtdlache = (document.getElementById("Qtdlache") as HTMLInputElement).value;
-      const Qtdlache1 = (document.getElementById("Qtdlache1") as HTMLInputElement).value;
-      const Qtdlache2 = (document.getElementById("Qtdlache2") as HTMLInputElement).value;
-
-      // Complementos
-      const bacon = (document.getElementById("QtdBacon") as HTMLInputElement).value;
-      const queijo = (document.getElementById("QtdQueijo") as HTMLInputElement).value;
-      const carne = (document.getElementById("Qtdcarne") as HTMLInputElement).value;
-
-      let arrayLanches: any[] = [];
-      if (JSON.parse(sessionStorage.getItem("Lanches") || "null") !== null) {
-        arrayLanches.push(JSON.parse(sessionStorage.getItem("Lanches") || ""));
-      }
-
-      
-      let arrayqtdLanches: any[] = [];
-      if (JSON.parse(sessionStorage.getItem("Qtdlanche") || "null") !== null) {
-        arrayqtdLanches.push(JSON.parse(sessionStorage.getItem("Qtdlanche") || ""));
-      }
-
-      let arrayComplementos: any[] = [];
-      if (JSON.parse(sessionStorage.getItem("Complementos") || "null") !== null) {
-        arrayComplementos.push(JSON.parse(sessionStorage.getItem("Complementos") || ""));
-      }
-
-      const complementos = {
-        bacon: bacon,
-        queijo: queijo,
-        carne: carne
-      };
-
-      const Lanches = {
-        Qtdlache: Qtdlache,
-        Qtdlache1: Qtdlache1,
-        Qtdlache2: Qtdlache2
-      };
-
-      const qtdLanches = {
-        LancheP: lancheP,
-        lancheM: lancheM,
-        lancheG: lancheP
-      };
-
-
-
-
-      arrayLanches.push(Lanches);
-      const LanchesJson = JSON.stringify(arrayLanches);
-      sessionStorage.setItem("Lanches", LanchesJson);
-
-      arrayqtdLanches.push(qtdLanches);
-      const qtdlanchesJson = JSON.stringify(arrayqtdLanches);
-      sessionStorage.setItem("qtdLanches", qtdlanchesJson);
-
-      arrayComplementos.push(complementos);
-      const compleJson = JSON.stringify(arrayComplementos);
-      sessionStorage.setItem("Complementos", compleJson);
-
-   
-
-      alert("Salvo com Sucesso");
-    });
+    // Navegar para a página do carrinho e passar os valores como parâmetro na URL
+    // Navegar para a página do carrinho e passar os valores como parâmetro na URL
+    this['router'].navigate(['/carrinho'], { state: { itemsSelecionados: itemsSelecionados } });
   }
 }

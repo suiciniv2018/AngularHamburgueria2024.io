@@ -42,9 +42,9 @@ export class MercadoComponent implements OnInit  {
   }
 
 
-  onAdicionarCarrinhoClick() {
+  onAdicionarCarrinhoClick( ) {
     // Chame o método addClickHandler() do CarrinhoStorageService
-    // Chame o método addClickHandler() do CarrinhoStorageService
-    this['carrinhoStorageService'].addClickHandler();
+    this['carrinhoStorageService'].onAdicionarCarrinhoClick(CarrinhoStorageService);
+   
   }
 }
