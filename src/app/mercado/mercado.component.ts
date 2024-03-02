@@ -4,8 +4,8 @@ import { BotaotopoComponent } from '../botaotopo/botaotopo.component';
 import { CarrinhocompraComponent } from '../carrinhocompra/carrinhocompra.component';
 import { PassarImagemoutraPaginaService } from '../ServiçosPagina@injetacble/passar-imagemoutra-pagina.service';
 import { Router } from '@angular/router';
-
-@Component({
+import {CarrinhoStorageService} from '../ServiçosPagina@injetacble/carrinho-storage.service'
+;@Component({
   selector: 'app-mercado',
   standalone: true,
   imports: [BotaotopoComponent,RouterLink,CarrinhocompraComponent,],
@@ -20,7 +20,7 @@ export class MercadoComponent implements OnInit  {
  
 
   constructor(private Router: ActivatedRoute,public PassarImagemoutraPaginaService: PassarImagemoutraPaginaService,
-    private router: Router) { }
+    private router: Router, public CarrinhoStorageService:CarrinhoStorageService) { }
 
 
   ngOnInit(): void {
@@ -41,25 +41,10 @@ export class MercadoComponent implements OnInit  {
     this.PassarImagemoutraPaginaService['caminhoImagem'];  // Caminho da imagem no modal
   }
 
-    adicionarAoCarrinho(): void {
-      const lancheP = 'R$ 18,00';
-      const lancheM = 'R$ 26,00';
-      const lancheG = 'R$ 30,00';
-      const Qtdlache = 'R$ 0';
-      const Qtdlache1 = 'R$ 0';
-      const Qtdlache2 = 'R$ 0';
-      const valorCarneExtra = 'R$ 6,00';
-      const total = 'R$ 0,00';
 
-   
-        localStorage.setItem('lancheP', 'R$ 18,00');
-        localStorage.setItem('lancheM', 'R$ 26,00');
-        localStorage.setItem('lancheG', 'R$ 30,00');
-        localStorage.setItem('Qtdlache', 'R$ 0');
-        localStorage.setItem('Qtdlache1', 'R$ 0');
-        localStorage.setItem('Qtdlache2', 'R$ 0');
-        localStorage.setItem('valorCarneExtra', 'R$ 6,00');
-        localStorage.setItem('total', 'R$ 0,00');
-
-        this['router'].navigate(['/carro']);
-    }}
+  onAdicionarCarrinhoClick() {
+    // Chame o método addClickHandler() do CarrinhoStorageService
+    // Chame o método addClickHandler() do CarrinhoStorageService
+    this['carrinhoStorageService'].addClickHandler();
+  }
+}
