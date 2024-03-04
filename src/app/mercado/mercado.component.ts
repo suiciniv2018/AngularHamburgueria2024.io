@@ -14,13 +14,10 @@ import {CarrinhoStorageService} from '../ServiçosPagina@injetacble/carrinho-sto
 })
 
 export class MercadoComponent implements OnInit  {
-  [x: string]: any;
 
-  
- 
 
   constructor(private Router: ActivatedRoute,public PassarImagemoutraPaginaService: PassarImagemoutraPaginaService,
-    private router: Router, public CarrinhoStorageService:CarrinhoStorageService) { }
+    private router: Router, private CarrinhoStorageService:CarrinhoStorageService) { }
 
 
   ngOnInit(): void {
@@ -42,8 +39,11 @@ export class MercadoComponent implements OnInit  {
   }
 
 
-  onAdicionarCarrinhoClick( ) {
-    //chamando o metodo service.
-    this['carrinhoStorageService'].onAdicionarCarrinhoClick();   
+  adicionarAoCarrinho( ) { 
+    //chamando o metodo service ao clicar no adicionar carrinho chama servico
+    this['CarrinhoStorageService'].adicionarAoCarrinho()
+
   }
+
+    
 }

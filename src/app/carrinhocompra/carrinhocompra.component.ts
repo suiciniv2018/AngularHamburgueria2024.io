@@ -15,14 +15,12 @@ import { MercadoComponent } from '../mercado/mercado.component';
   
 })
 export class CarrinhocompraComponent  implements OnInit  {
-
-  lanches!: any[];
-  qtdLanches!: any[];
-  complementos!: any[];
-
-  constructor(private route: ActivatedRoute,public carrinhoStorageService: CarrinhoStorageService) { }
-
   itemsSelecionados: any;
+
+
+  constructor(private route: ActivatedRoute,private carrinhoStorageService: CarrinhoStorageService) { }
+
+
 
 
   ngOnInit(): void {
@@ -31,3 +29,5 @@ export class CarrinhocompraComponent  implements OnInit  {
     console.log(this.itemsSelecionados); 
   }
 }
+
+
