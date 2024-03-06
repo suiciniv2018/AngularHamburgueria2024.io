@@ -39,9 +39,9 @@ export class MercadoComponent implements OnInit  {
   }
 
 
-  adicionarAoCarrinho( ) { 
+  AdicionarCarrinho( ) { 
     //chamando o metodo service ao clicar no adicionar carrinho chama servico
-    this['CarrinhoStorageService'].adicionarAoCarrinho()
+    this['CarrinhoStorageService'].AdicionarCarrinho();
 
   }
 

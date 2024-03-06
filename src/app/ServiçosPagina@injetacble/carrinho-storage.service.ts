@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class CarrinhoStorageService {
   constructor() { }
 
-  adicionarAoCarrinho(): any {
+  AdicionarCarrinho(): any {
     //ao clicar fazer ação
     const addclick = document.querySelector("#adicionarCarrinho");
     if (addclick) {
@@ -84,9 +84,9 @@ if (typeof arrayComplementosString === 'string') {
         arrayComplementos.push(Complementos);
  
         // Salvando os arrays atualizados no localStorage
-        localStorage.setItem("Lanches", JSON.stringify(arrayLanches));
-        localStorage.setItem("QtdLanches", JSON.stringify(arrayQtdLanchesNumbers));
-        localStorage.setItem("Complementos", JSON.stringify(arrayComplementos));
+        sessionStorage.setItem("Lanches", JSON.stringify(arrayLanches));
+        sessionStorage.setItem("QtdLanches", JSON.stringify(arrayQtdLanchesNumbers));
+        sessionStorage.setItem("Complementos", JSON.stringify(arrayComplementos));
 
         // Lógica para obter os itens do carrinho e retornar
         const itensDoCarrinhoString = localStorage.getItem('Lanches');
