@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, RouterLink } from '@angular/router';
-import { CarrinhoStorageService } from '../ServiçosPagina@injetacble/carrinho-storage.service';
+import {  RouterLink } from '@angular/router';
 import { NgFor,NgIf } from '@angular/common';
 import { MercadoComponent } from '../mercado/mercado.component';
 
@@ -14,20 +13,9 @@ import { MercadoComponent } from '../mercado/mercado.component';
   
   
 })
-export class CarrinhocompraComponent  implements OnInit  {
-  itensDoCarrinho: any[] = [];
-
-  constructor(private route: ActivatedRoute,private carrinhoStorageService: CarrinhoStorageService) { }
+export class CarrinhocompraComponent  {
 
 
-
-
-  ngOnInit(): void {
-    // Recuperar os valores passados como parâmetro na URL
-    
-    this.itensDoCarrinho = this.carrinhoStorageService.AdicionarCarrinho();
-  }
 }
 
-
-
+ 

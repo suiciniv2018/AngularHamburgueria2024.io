@@ -65,9 +65,7 @@ body {
     margin-left: -60px;
 }
 
-.tot{
-    color: black;
-}
+
 
 h1 { 
 
@@ -154,58 +152,53 @@ button{
   background: linear-gradient(90deg, rgba(23,18,102,1) 0%, rgba(165,123,238,1) 36%, rgba(36,159,218,1) 100%);
 
 }
-input{
-  width: 80px;
-}
 
-#LancheP,#LancheM,#LancheG{
-  margin-left: 10px;
+#LancheP{
+  margin-left: 30px;
 }
-
 #LancheM{
-  margin-left: 22px;
+  margin-left: 30px;
 }
 
 #LancheG{
-  margin-left: 15px;
-}
-.QTDlanche{
-  margin-top: 10px;
-    }
-#Qtdlache,#Qtdlache1,#Qtdlache2{
-  width: 80px;
-  margin-left: 60px;
-  border: 1px solid black;
+  margin-left: 30px;
+} 
+
+
+#QtdLancheP{
+  margin-left: 0px;
 }
 
-label{
-  margin-left: 60px;
-}
-.valores{
-  margin-left: 30px!important;
-}
-#Qtdcarne, #QtdBacon,#QtdQueijo{
-margin-top: 5px;
-margin-left: 50rem;
-border: black 1px solid;
+#QtdLancheM{
+  margin-left: 0px;
 }
 
+#QtdLancheG{
+  margin-left:0px;
+}
+  .QtdComplementos{
+font-weight: bold;
+    padding-left: 50px;
+   }
+ 
+  .Valores-carne{
+    margin-left: -30rem!important;
+  }
+
+#Qtdcarne{
+  margin-left: 8px!important;
+}
+
+#Qtdbacon{
+  margin-left: 6px!important;
+}
+
+#Qtdqueijo{
+  margin-left: 3px!important;
+
+}
 h4{
   margin-left: -25rem;
-}
-
-.valores{
- margin-left: -25rem!important;
-
-}
-.Containers-Qtd{
-  margin-right: 10px!important;
-}
-label.nomeQtd{
-  margin-right: -44rem !important;
-}
-.Containers-Qtd{
-  margin-left: -20rem;
 }
 .modal-content{
       width: 70rem;
@@ -218,12 +211,19 @@ label.nomeQtd{
   #buttonSelec,#buttonSelec1,#buttonSelec2{
       margin-left: 40px;
   }
-
+.modal-body{
+  margin-top: 30px;
+}
  #ImagemModal{
   margin-top: 5%;
   width: 20%;
  }
 
  .Precosmodal{
-  margin-top: -180px;
+  margin-top: -230px;
  }
+
+.tot{
+  margin-left: 50rem;
+  color: black;
+}

@@ -1,112 +1,51 @@
+import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CarrinhoStorageService {
-  constructor() { }
 
-  AdicionarCarrinho(): any {
-    //ao clicar fazer ação
-    const addclick = document.querySelector("#adicionarCarrinho");
-    if (addclick) {
-      addclick.addEventListener("click", (event) => {
-        event.preventDefault();
+  constructor(public router: Router) { }
+
+  adicionarAoCarrinho(): void {
+  
+    const adicionarBtn = document.querySelector<HTMLButtonElement>('#adicionarCarrinho');
+
+    if (adicionarBtn) {
+      adicionarBtn.addEventListener("click", () => {
+
+
+        const lancheP = document.getElementById("LancheP")?.getAttribute("value");
+        const lancheM = document.getElementById("LancheM")?.getAttribute("value");
+        const lancheG = document.getElementById("LancheG")?.getAttribute("value");
+        const qtdLancheP = (document.getElementById("QtdlacheP") as HTMLInputElement).value;
+        const qtdLancheM = (document.getElementById("QtdlacheM") as HTMLInputElement).value;
+        const qtdLancheG = (document.getElementById("QtdlacheG") as HTMLInputElement).value;
+        const qtdCarne = (document.getElementById("Qtdcarne") as HTMLInputElement).value;
+
       
-        // Pegando valores dos lanches
-        const LancheP = document.getElementById("LancheP")?.textContent;
-        const LancheM = (document.getElementById("LancheM") as HTMLInputElement).value;
-        const LancheG = (document.getElementById("LancheG") as HTMLInputElement).value;
+        const total =
+          parseFloat(lancheP || '0') * parseInt(qtdLancheM) +
+          parseFloat(lancheM || '0') * parseInt(qtdLancheP) +
+          parseFloat(lancheG || '0') * parseInt(qtdLancheG) +
+          parseFloat(qtdCarne || '0') * 6; 
 
-        // Pegando a quantidade de lanches
-        const Qtdlache = (document.getElementById("Qtdlache") as HTMLInputElement).value;
-        const Qtdlache1 = (document.getElementById("Qtdlache1") as HTMLInputElement).value;
-        const Qtdlache2 = (document.getElementById("Qtdlache2") as HTMLInputElement).value;
+       
+        sessionStorage.setItem('lancheP', lancheP || '0');
+        sessionStorage.setItem('lancheM', lancheM || '0');
+        sessionStorage.setItem('lancheG', lancheG || '0');
+        sessionStorage.setItem('qtdLancheP', qtdLancheP);
+        sessionStorage.setItem('qtdLancheM', qtdLancheM);
+        sessionStorage.setItem('qtdLancheG', qtdLancheG);
+        sessionStorage.setItem('qtdCarne', qtdCarne);
+        sessionStorage.setItem('total', total.toFixed(2));
 
-        // Pegando complementos
-        const bacon = (document.getElementById("QtdBacon") as HTMLInputElement).value;
-        const carne = (document.getElementById("Qtdcarne") as HTMLInputElement).value;
-        const queijo = (document.getElementById("Qtdqueijo") as HTMLInputElement).value;
+        
+        document.getElementById("total")!.textContent = `R$ ${total.toFixed(2)}`;
 
-        //pegar total depois
-
-        // Criando objetos para os lanches, quantidades e complementos
-        const Lanches = {
-          LancheP: LancheP,
-          LancheM: LancheM,
-          LancheG: LancheG,
-        };
-
-        const qtdLanches = {
-          Qtdlache: Qtdlache,
-          Qtdlache1: Qtdlache1,
-          Qtdlache2: Qtdlache2,
-        };
-
-        const Complementos = {
-          bacon: bacon,
-          queijo: queijo,
-          carne: carne,
-        };
-
-// Recuperando os arrays do localStorage
-let arrayLanchesString = localStorage.getItem("Lanches");
-let arrayLanches: any[] = [];
-
-if (typeof arrayLanchesString === 'string') {
-  arrayLanches = JSON.parse(arrayLanchesString);
-} else {
-  console.error('O valor retornado pelo localStorage não é uma string.');
-}
-
-let arrayQtdLanchesNumber = localStorage.getItem("QtdLanches");
-let arrayQtdLanchesNumbers: any[] = [];
-
-if (typeof arrayQtdLanchesNumber === 'string') {
-  arrayQtdLanchesNumbers = JSON.parse(arrayQtdLanchesNumber);
-} else {
-  console.error('O valor retornado pelo localStorage não é uma string.');
-}
-
-let arrayComplementosString = localStorage.getItem("Complementos");
-let arrayComplementos: any[] = [];
-
-if (typeof arrayComplementosString === 'string') {
-  arrayComplementos = JSON.parse(arrayComplementosString);
-} else {
-  console.error('O valor retornado pelo localStorage não é uma string.');
-}
-
- 
-        // Adicionando os novos dados aos arrays
-        arrayLanches.push(Lanches);
-        arrayQtdLanchesNumbers.push(qtdLanches);
-        arrayComplementos.push(Complementos);
- 
-        // Salvando os arrays atualizados no localStorage
-        sessionStorage.setItem("Lanches", JSON.stringify(arrayLanches));
-        sessionStorage.setItem("QtdLanches", JSON.stringify(arrayQtdLanchesNumbers));
-        sessionStorage.setItem("Complementos", JSON.stringify(arrayComplementos));
-
-        // Lógica para obter os itens do carrinho e retornar
-        const itensDoCarrinhoString = localStorage.getItem('Lanches');
-        if (itensDoCarrinhoString) {
-          return JSON.parse(itensDoCarrinhoString)
-        } else {
-          const itensDoCarrinhoStrings = localStorage.getItem('Complementos');
-          if (itensDoCarrinhoStrings) {
-            return JSON.parse(itensDoCarrinhoStrings)
-          } else {
-            const itensDoCarrinhoNumber = localStorage.getItem('QtdLanches');
-            if (itensDoCarrinhoNumber) {
-              return JSON.parse(itensDoCarrinhoNumber)
-            }
-            return[];
-          }
-        }
+        alert("Valores adicionados ao carrinho com sucesso!");
       });
-    } else {
-      console.error("Elemento com ID 'adicionarCarrinho' não encontrado.");
     }
   }
 }

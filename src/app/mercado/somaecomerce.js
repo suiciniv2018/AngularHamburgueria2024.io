@@ -9,12 +9,12 @@
 
 function atualizarValorTotal() {
     // Obter os valores selecionados e convertê-los para números
-    const quantidadeLancheP = parseInt(document.getElementById('Qtdlache').value);
-    const quantidadeLancheM = parseInt(document.getElementById('Qtdlache1').value);
-    const quantidadeLancheG = parseInt(document.getElementById('Qtdlache2').value);
+    const quantidadeLancheP = parseInt(document.getElementById('QtdLancheP').value);
+    const quantidadeLancheM = parseInt(document.getElementById('QtdLancheM').value);
+    const quantidadeLancheG = parseInt(document.getElementById('QtdLancheG').value);
     const quantidadeCarne = parseInt(document.getElementById('Qtdcarne').value);
-    const quantidadeBacon = parseInt(document.getElementById('QtdBacon').value);
-    const quantidadeQueijo = parseInt(document.getElementById('QtdQueijo').value)
+    const quantidadeBacon = parseInt(document.getElementById('Qtdbacon').value);
+    const quantidadeQueijo = parseInt(document.getElementById('Qtdqueijo').value)
 
 
 
